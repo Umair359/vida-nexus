@@ -1,0 +1,17 @@
+.admin-input-des {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-left: 35px;
+}
+.admin-input-des > textarea {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  height: 160px;
+  margin-top: 5px;
+}
+.admin-input-des > label {
+  font-size: 20px;
+}

@@ -1,0 +1,166 @@
+.home {
+  overflow-x: hidden;
+}
+.home-banner-img {
+  height: 780px;
+  margin: auto;
+}
+
+.home-section-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.home-section-heading > h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+.home-service {
+  padding: 0 80px;
+  margin: 60px 0;
+}
+.card {
+  transform: scale(0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.card > img {
+  width: 350px;
+  margin: auto;
+}
+.card-text {
+  padding: 15px 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-text > h3 {
+  font-size: 26px;
+}
+.card-text > p {
+  font-size: 16px;
+}
+.card-text > a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fa8708;
+}
+.slider-container {
+  width: 80vw;
+  margin: auto;
+  padding-top: 40px;
+}
+.practitioner-container {
+  background-color: #f4f6f6;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+.practitioner {
+  transform: scale(90%);
+  width: 500px;
+  border-radius: 45px 45px 45px 15px;
+  margin-bottom: 30px;
+  background-image: url("/public/Images/practitioner-bg.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.practitioner > img {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.practitioner-text {
+  text-align: center;
+}
+.practitioner-text > h3 {
+  font-size: 18px;
+}
+.practitioner-text > p {
+  font-size: 14px;
+}
+.practitioner-des {
+  text-align: center;
+  font-size: 20px;
+  padding: 0 10px;
+}
+.practitioner-des > div {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.practitioner-des > div > img {
+  width: 100px;
+  height: 100px;
+}
+.slick-dots > li {
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #083239;
+  transform: scale(0.4);
+}
+.slick-dots li button:before {
+  color: transparent;
+}
+.slick-dots li.slick-active button:before {
+  color: transparent !important;
+}
+.slick-dots li.slick-active {
+  background-color: #083239;
+  transform: scale(0.8);
+}
+@media (max-width: 1500px) {
+  .home-banner-img {
+    height: 520px;
+  }
+  .home-service {
+    padding: 0 20px;
+    margin: 30px 0;
+  }
+}
+@media (max-width: 1024px) {
+  .home-banner-img {
+    height: 400px;
+  }
+  .home-section-heading > h1 {
+    font-size: 40px;
+  }
+  .card {
+    width: 250px;
+  }
+}
+@media (max-width: 767px) {
+  .home-banner-img {
+    height: 250px;
+  }
+  .home-section-heading > h1 {
+    font-size: 31px;
+  }
+
+  .card-text > h3 {
+    font-size: 20px;
+  }
+  .card-text > p {
+    font-size: 13px;
+  }
+  .card-text > a {
+    font-size: 15px;
+  }
+  .practitioner-des {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .practitioner-des > div > img {
+    width: 50px;
+    height: 50px;
+  }
+}

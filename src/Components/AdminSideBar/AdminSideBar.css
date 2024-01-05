@@ -1,0 +1,95 @@
+.admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.admin-sidebar > img {
+  padding: 0 40px 20px 20px;
+  border-bottom: 1px solid gainsboro;
+}
+.admin-sidebar > div {
+  padding: 30px 0;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+.admin-sidebar > div > button,
+.admin-sidebar-subnav > button {
+  padding: 5px 15px;
+  width: 230px;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  transition: all 0.5s ease;
+}
+.admin-sidebar > div > button > p {
+  font-size: 16px;
+}
+.admin-sidebar > div > button > svg > path {
+  fill: #fa8708;
+}
+.admin-sidebar > div > button:hover,
+.admin-sidebar-subnav > div > button:hover,
+.admin-sidebar-subnav > button:hover {
+  background-color: #083239;
+}
+.admin-sidebar > div > button:hover > svg > *,
+.admin-sidebar > div > button:hover > svg > g > *,
+.admin-sidebar-subnav > div > button:hover > svg > *,
+.admin-sidebar-subnav > div > button:hover > svg > g > *,
+.admin-sidebar-subnav > button:hover > svg > *,
+.admin-sidebar-subnav > button:hover > svg > g > * {
+  fill: white;
+}
+.admin-sidebar > div > button:hover > p,
+.admin-sidebar-subnav > div > button:hover > p,
+.admin-sidebar-subnav > button:hover > p {
+  color: white;
+}
+.svg-rev {
+  fill: white;
+}
+.admin-sidebar > div > button:hover > svg > g > path.svg-rev {
+  fill: #083239 !important;
+}
+.admin-sidebar-subnav {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  overflow-y: hidden;
+  height: 40px;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.admin-sidebar-subnav-open {
+  height: 180px !important;
+}
+.admin-sidebar-subnav > button {
+  border: none;
+}
+.admin-sidebar-subnav > div {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  background-color: white;
+  transition: all 0.5s ease;
+}
+.admin-sidebar-subnav > div > button {
+  display: flex;
+  margin-top: 3px;
+  gap: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  transition: all 0.5s ease;
+}

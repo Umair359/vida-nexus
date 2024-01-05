@@ -1,0 +1,74 @@
+.admin-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: calc(100vh - 180px);
+  overflow-y: scroll;
+}
+.admin-table {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 15px;
+}
+.admin-table > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-table > div > h3,
+.admin-table > div > p {
+  width: 20%;
+}
+.admin-table > div:first-child {
+  background-color: #083239;
+  padding: 8px 40px;
+  color: white;
+  font-size: 20px;
+  border-radius: 15px 15px 0 0;
+  margin: 0;
+  margin-bottom: 40px;
+}
+.admin-table > div {
+  margin: 10px 40px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+  background-color: #fcfcfc;
+  color: grey;
+}
+.admin-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: flex-end;
+  margin: 100px 40px 40px;
+}
+.admin-search {
+  display: flex;
+  background-color: white;
+  height: 40px;
+  width: 250px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+.admin-search > input {
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+.admin-search > svg {
+  height: 25px;
+}
+.btn-generate {
+  background-color: #083239;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none;
+}

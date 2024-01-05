@@ -1,0 +1,11 @@
+.dashboard-container > img {
+  height: 15px;
+  width: 100%;
+}
+.dashboard {
+  display: flex;
+}
+.dashboard > div:first-child {
+  width: 300px;
+  height: calc(100vh - 80px);
+}

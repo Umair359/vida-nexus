@@ -1,0 +1,30 @@
+.admin-header {
+  display: flex;
+  background-color: #fcfcfc;
+  height: 100px;
+  width: calc(100vw - 300px);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 150px 0 40px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px inset,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.admin-header > h1 {
+  font-size: 30px;
+}
+.admin-header > div {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.admin-header > div > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-header > div > svg {
+  width: 70px;
+  height: 30px;
+  padding-left: 40px;
+  border-left: 1px solid gainsboro;
+}

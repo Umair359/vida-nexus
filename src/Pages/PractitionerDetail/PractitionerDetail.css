@@ -1,0 +1,121 @@
+.practitioner-detail-container {
+  padding: 40px 170px;
+  background-color: #f4f6f6;
+}
+.practitioner-detail-container > div:first-child {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.practitioner-detail-container > div:first-child > h1 {
+  font-size: 60px;
+}
+.practitioner-detail-container > div:first-child > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.practitioner-detail-header {
+  margin-top: 45px;
+  background-color: white;
+  border-radius: 45px 45px 45px 15px;
+  display: flex;
+  width: 100%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.practitioner-detail-header > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 60px;
+  min-width: 300px;
+}
+.practitioner-detail-header > div:first-child > img {
+  width: 500px;
+}
+.practitioner-detail-header > div:last-child {
+  padding: 30px 60px;
+  border-left: 1px solid #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.practitioner-detail-header > div > h3 {
+  font-size: 26px;
+}
+.practitioner-detail-header > div > p {
+  font-size: 26px;
+  color: #707070;
+}
+.practitioner-detail-service {
+  margin: 150px 0;
+}
+.practitioner-detail-service > h1 {
+  font-size: 60px;
+  text-align: center;
+}
+@media (max-width: 1500px) {
+  .practitioner-detail-container > div:first-child > h1,
+  .practitioner-detail-service > h1 {
+    font-size: 50px;
+  }
+  .practitioner-detail-header > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    min-width: 200px;
+  }
+  .practitioner-detail-header > div:last-child {
+    padding: 45px 30px;
+    border-left: 1px solid #e9e9e9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .practitioner-detail-header > div > h3 {
+    font-size: 20px;
+  }
+  .practitioner-detail-header > div > p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1023px) {
+  .practitioner-detail-container > div:first-child > h1,
+  .practitioner-detail-service > h1 {
+    font-size: 40px;
+  }
+  .practitioner-detail-container {
+    padding: 40px;
+  }
+  .practitioner-detail-container > div:first-child > h1 {
+    font-size: 40px;
+  }
+  .practitioner-detail-header {
+    flex-direction: column;
+  }
+  .practitioner-detail-header > div:first-child > img {
+    width: 300px;
+  }
+  .practitioner-detail-header > div:last-child {
+    align-items: center;
+  }
+}
+@media (max-width: 767px) {
+  .practitioner-detail-container > div:first-child > h1,
+  .practitioner-detail-service > h1 {
+    font-size: 31px;
+  }
+  .practitioner-detail-container {
+    padding: 10px;
+  }
+  .practitioner-detail-container > div:first-child > h1 {
+    font-size: 30px;
+  }
+  .practitioner-detail-container > div:first-child {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

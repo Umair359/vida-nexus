@@ -1,0 +1,53 @@
+.admin-profile,
+.admin-password {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+}
+.admin-profile > div:first-child,
+.admin-password > div:first-child {
+  background-color: #083239;
+  display: flex;
+  padding: 15px 40px;
+  justify-content: space-between;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+}
+.admin-profile > div:first-child > h3:last-child,
+.admin-password > div:first-child > h3:last-child {
+  transform: scale(2.4, 2) translateY(1px);
+}
+.admin-profile-section1 {
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  gap: 20px;
+}
+.admin-profile-section1 > img {
+  width: 140px;
+}
+.admin-profile-section1 > p {
+  color: #083239;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+.admin-profile > h3 {
+  padding: 0 40px;
+  font-size: 20px;
+}
+.admin-profile > textarea {
+  margin: 0 40px;
+  border: 1px solid gainsboro;
+  width: 600px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #fcfcfc;
+}
+.admin-profile > button,
+.admin-password > form > button {
+  margin: 20px 40px 60px 40px !important;
+  width: 150px;
+}

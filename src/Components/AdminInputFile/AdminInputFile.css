@@ -1,0 +1,21 @@
+.admin-input-file {
+  width: fit-content;
+  margin-left: 35px;
+}
+.admin-input-file > label > h4 {
+  font-size: 20px;
+}
+.admin-input-file > label > div {
+  background-color: #fcfcfc;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  margin-top: 5px;
+  background-image: url("/public/Images/DefaultImage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 160px;
+  height: 160px;
+}
+.admin-input-file > input {
+  display: none;
+}

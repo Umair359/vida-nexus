@@ -1,0 +1,27 @@
+.admin-product-setting > div:last-child {
+  align-self: flex-end;
+}
+.admin-product-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 10px 0px 10px;
+  gap: 10px;
+}
+.admin-product-card > div {
+  width: 300px;
+}
+@media (max-width: 1600px) {
+  .admin-product-card {
+    margin: 20px 5px 0px 5px;
+    gap: 5px;
+  }
+  .admin-product-card > div {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .admin-product-card > div {
+    width: 240px;
+  }
+}
