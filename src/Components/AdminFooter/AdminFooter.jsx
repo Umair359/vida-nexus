@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AdminFooter = () => {
-  //Admin Footer
   return (
     <div className="end-line">
       <p>© copyright 2023. All rights reserved.</p>

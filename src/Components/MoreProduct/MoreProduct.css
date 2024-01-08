@@ -1,0 +1,43 @@
+.more-product {
+  padding: 40px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 1px solid gainsboro;
+  border-radius: 15px;
+}
+.more-product > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.more-product > div > h2 {
+  font-size: 30px;
+  padding-left: 30px;
+}
+.more-product > div > button {
+  background-color: #fa2108;
+  display: flex;
+  align-items: center;
+  padding: 5px 25px;
+  gap: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+@media (max-width: 1250px) {
+  .more-product {
+    padding: 20px 10px;
+  }
+  .more-product > div {
+    margin: 5px;
+  }
+  .more-product > div > button {
+    padding: 5px 10px;
+  }
+  .more-product > div > button > p {
+    font-size: 13px;
+  }
+  .more-product > div > h2 {
+    padding-left: 0px !important;
+  }
+}

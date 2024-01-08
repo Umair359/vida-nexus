@@ -1,0 +1,105 @@
+.store-create {
+  margin-top: 60px;
+  border: 1px solid gainsboro;
+  border-radius: 15px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.store-create > h1 {
+  font-size: 60px;
+  padding-left: 25px;
+}
+.store-create-product {
+  margin: 30px;
+  padding: 40px;
+  border: 1px solid gainsboro;
+  border-radius: 15px;
+}
+.store-create > div h2 {
+  font-size: 30px;
+  padding-left: 25px;
+}
+.add-new-product {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 35px;
+  gap: 30px;
+  margin-right: 35px;
+}
+.add-new-product:hover {
+  cursor: pointer;
+}
+.add-new-product > h2 {
+  font-size: 30px;
+}
+.btn-container > button:last-child {
+  background-color: #fa2108;
+}
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 35px;
+}
+
+@media (max-width: 1440px) {
+  .store-create > h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1250px) {
+  .store-create {
+    margin-top: 30px;
+    padding: 30px 10px;
+    gap: 10px;
+  }
+  .store-create > h1 {
+    font-size: 40px;
+  }
+  .store-create-product {
+    padding: 20px 10px;
+  }
+
+  .add-new-product > h2 {
+    font-size: 22px !important;
+  }
+  .btn-container {
+    margin-bottom: 10px;
+  }
+  .store-create label > h4,
+  .store-create h4 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .store-create {
+    padding: 20px 0;
+  }
+  .store-create > div {
+    margin: 10px;
+  }
+  .store-create > h1 {
+    font-size: 26px;
+    padding-left: 10px;
+  }
+  .store-create h2 {
+    font-size: 22px !important;
+  }
+  .store-create-product {
+    margin: 10px !important;
+  }
+  .store-create-product > h2 {
+    padding-left: 5px !important;
+  }
+  .store-create-product > div {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .add-new-product > h2 {
+    font-size: 16px !important;
+  }
+}

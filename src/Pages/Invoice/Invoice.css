@@ -21,6 +21,9 @@
 .admin-table > div > p {
   width: 20%;
 }
+.admin-table > div > h3 {
+  color: white;
+}
 .admin-table > div:first-child {
   background-color: #083239;
   padding: 8px 40px;
@@ -62,6 +65,7 @@
   font-size: 16px;
   border: none;
   outline: none;
+  background-color: transparent;
 }
 .admin-search > svg {
   height: 25px;

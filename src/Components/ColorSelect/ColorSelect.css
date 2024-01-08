@@ -1,0 +1,97 @@
+.color-select {
+  display: flex;
+  flex-direction: row !important;
+  gap: 40px;
+  align-items: center;
+  margin: 30px 35px;
+  padding: 30px 0;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
+}
+.color-select > h4 {
+  font-size: 20px;
+}
+.color-select > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.select-color-container {
+  display: flex;
+}
+.select-color-container > label > div {
+  width: 35px;
+  height: 35px;
+}
+
+.select-color {
+  display: none;
+}
+.select-color:checked + label div {
+  border: 4px solid orange;
+}
+#color-1 + label div {
+  background-image: linear-gradient(#84141f, #b91c2b);
+}
+#color-2 + label div {
+  background-image: linear-gradient(#fa7c25, #af2c04);
+}
+#color-3 + label div {
+  background-image: linear-gradient(#f0c22d, #9f811e);
+}
+#color-4 + label div {
+  background-image: linear-gradient(#b7d03c, #7b8b28);
+}
+#color-5 + label div {
+  background-image: linear-gradient(#f2df22, #a19517);
+}
+#color-6 + label div {
+  background-image: linear-gradient(#88bb4c, #5a7c32);
+}
+#color-7 + label div {
+  background-image: linear-gradient(#58b54f, #3a7834);
+}
+#color-8 + label div {
+  background-image: linear-gradient(#43a44a, #2c6d31);
+}
+#color-9 + label div {
+  background-image: linear-gradient(#00c7ab, #008471);
+}
+#color-10 + label div {
+  background-image: linear-gradient(#450204, #450204);
+}
+#color-11 + label div {
+  background-image: linear-gradient(#4b93cc, #326187);
+}
+#color-12 + label div {
+  background-image: linear-gradient(#3d589f, #293a6a);
+}
+#color-13 + label div {
+  background-image: linear-gradient(#44449e, #2d2d69);
+}
+#color-14 + label div {
+  background-image: linear-gradient(#5f469e, #3f2e69);
+}
+#color-15 + label div {
+  background-image: linear-gradient(#81459e, #562e69);
+}
+
+@media (max-width: 1024px) {
+  .color-select {
+    flex-direction: column !important;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .color-select > div {
+    gap: 8px;
+  }
+  .select-color-container > label > div {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}

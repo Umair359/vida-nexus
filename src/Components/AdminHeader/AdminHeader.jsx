@@ -1,9 +1,24 @@
 import React from "react";
 import "./AdminHeader.css";
+import { useLocation } from "react-router-dom";
 const AdminHeader = () => {
+  const location = useLocation();
+
+  // Accessing the pathname, search, hash, etc. from the location object
+  const { pathname, search, hash } = location;
+  console.log("pathname", pathname);
+
   return (
     <div className="admin-header">
-      <h1>List of Invoice</h1>
+      <h1>
+        {pathname === "/admin/invoice"
+          ? "List of Invoice"
+          : pathname === "/admin/profile"
+          ? "Admin Profile"
+          : pathname === "/admin/setting/layout"
+          ? "Admin Layout Setting"
+          : "Admin Product Setting"}
+      </h1>
       <div>
         <div>
           <img src="/Images/admin.png" alt="admin" />

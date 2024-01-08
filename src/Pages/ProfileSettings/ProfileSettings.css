@@ -19,6 +19,10 @@
 .admin-password > div:first-child > h3:last-child {
   transform: scale(2.4, 2) translateY(1px);
 }
+.admin-profile > div > h3,
+.admin-password > div > h3 {
+  color: white;
+}
 .admin-profile-section1 {
   display: flex;
   padding: 40px;

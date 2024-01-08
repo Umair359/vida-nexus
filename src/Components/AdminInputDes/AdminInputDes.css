@@ -1,8 +1,8 @@
 .admin-input-des {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
-  margin-left: 35px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .admin-input-des > textarea {
   background-color: #fcfcfc;

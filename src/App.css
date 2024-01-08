@@ -38,3 +38,37 @@ h2 {
 body {
   overflow-x: hidden !important;
 }
+.my-container {
+  width: 1550px;
+  margin: auto;
+}
+@media (max-width: 1600px) {
+  .my-container {
+    width: 1400px;
+  }
+}
+@media (max-width: 1440px) {
+  .my-container {
+    width: 1200px;
+  }
+}
+@media (max-width: 1250px) {
+  .my-container {
+    width: 1000px;
+  }
+}
+@media (max-width: 1024px) {
+  .my-container {
+    width: 700px;
+  }
+}
+@media (max-width: 768px) {
+  .my-container {
+    width: 520px;
+  }
+}
+@media (max-width: 576px) {
+  .my-container {
+    width: 300px;
+  }
+}

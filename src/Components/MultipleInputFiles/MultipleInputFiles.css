@@ -1,0 +1,36 @@
+.admin-input-file-multiple {
+  margin-left: 35px;
+  width: 96%;
+}
+.admin-input-file-multiple > label > h4 {
+  font-size: 20px;
+}
+.admin-input-file-multiple > label > div {
+  background-color: #fcfcfc;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  margin-top: 5px;
+  height: 160px;
+  width: 100%;
+  display: flex;
+}
+.admin-input-file-multiple > label > div > div {
+  width: 160px;
+  height: 160px;
+  background-image: url("/public/Images/DefaultImage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.admin-input-file-multiple > input {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .admin-input-file-multiple > label > div > div {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 15px;
+  }
+}

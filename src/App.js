@@ -13,7 +13,7 @@ import Contact from "./Pages/Contact/Contact.jsx";
 import RegisterAsPractitioner from "./Pages/Auth/RegisterAsPractitioner/RegisterAsPractitioner.jsx";
 import RegisterAsBuyer from "./Pages/Auth/RegisterAsBuyer/RegisterAsBuyer.jsx";
 import Login from "./Pages/Auth/Login/Login.jsx";
-
+import StoreCreate from "./Pages/StoreCreate/StoreCreate.jsx";
 
 import Header from './Components/Header/Header.jsx'
 import Footer from './Components/Footer/Footer.jsx'
@@ -66,6 +66,7 @@ const App = () => {
           <Route path="/register-as-practitioner" element={<PageLayout><RegisterAsPractitioner /></PageLayout>} />
           <Route path="/register-as-buyer" element={<PageLayout><RegisterAsBuyer /></PageLayout>} />
           <Route path="/login" element={<PageLayout><Login /></PageLayout>} />
+          <Route path="/store/create" element={<PageLayout><StoreCreate /></PageLayout>} />
           <Route path={"/admin"} element={<Dashboard />}>
             <Route path="invoice" element={<Invoice />} />
             <Route path="profile" element={<ProfileSettings />} />
