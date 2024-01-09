@@ -3,11 +3,7 @@ import "./AdminHeader.css";
 import { useLocation } from "react-router-dom";
 const AdminHeader = () => {
   const location = useLocation();
-
-  // Accessing the pathname, search, hash, etc. from the location object
-  const { pathname, search, hash } = location;
-  console.log("pathname", pathname);
-
+  const { pathname } = location;
   return (
     <div className="admin-header">
       <h1>

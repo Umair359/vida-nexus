@@ -1,8 +1,12 @@
 .admin-input {
   margin: 30px 30px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .admin-input > label {
   font-size: 20px;
+  margin-top: 10px;
 }
 .admin-input > input {
   width: 100%;

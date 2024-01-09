@@ -1,9 +1,12 @@
 .admin-input-file {
   width: fit-content;
   margin-left: 35px;
+  gap: 15px;
+  margin-top: 20px;
 }
 .admin-input-file > label > h4 {
   font-size: 20px;
+  line-height: normal;
 }
 .admin-input-file > label > div {
   background-color: #fcfcfc;

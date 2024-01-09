@@ -3,7 +3,9 @@ import AdminInput from "../../../Components/AdminInput/AdminInput";
 import "./RegisterAsPractitioner.css";
 import AdminInputDes from "../../../Components/AdminInputDes/AdminInputDes";
 import AdminInputFile from "../../../Components/AdminInputFile/AdminInputFile";
+import { useNavigate } from "react-router-dom";
 const RegisterAsPractitioner = () => {
+  const navigate = useNavigate();
   return (
     <div className="my-container">
       <form className="register-as-practioneer">
@@ -33,7 +35,12 @@ const RegisterAsPractitioner = () => {
           <AdminInputDes text="Description" />
           <AdminInputFile text="Upload Picture" />
         </div>
-        <button className="btn-primary">CREATE ACCOUNT</button>
+        <button
+          onClick={() => navigate("/admin/setting/service")}
+          className="btn-primary"
+        >
+          CREATE ACCOUNT
+        </button>
       </form>
     </div>
   );
