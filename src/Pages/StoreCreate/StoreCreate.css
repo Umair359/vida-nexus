@@ -35,12 +35,13 @@
 .add-new-product > h2 {
   font-size: 30px;
 }
-.btn-container > button:last-child {
+.store-create-btn-container > button:last-child {
   background-color: #fa2108;
 }
-.btn-container {
+.store-create-btn-container {
   display: flex;
   justify-content: flex-end;
+  gap: 20px;
   margin-right: 35px;
 }
 
@@ -102,4 +103,18 @@
   .add-new-product > h2 {
     font-size: 16px !important;
   }
+}
+.store-create-confirm {
+  background-color: rgba(0, 0, 0, 0.589);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }

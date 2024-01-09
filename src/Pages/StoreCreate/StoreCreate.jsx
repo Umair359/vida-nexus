@@ -5,7 +5,9 @@ import ColorSelect from "../../Components/ColorSelect/ColorSelect";
 import AdminInputFile from "../../Components/AdminInputFile/AdminInputFile";
 import MultipleInputFiles from "../../Components/MultipleInputFiles/MultipleInputFiles.jsx";
 import MoreProduct from "../../Components/MoreProduct/MoreProduct.jsx";
+import StoreCreateModal from "../../Components/StoreCreateModal/StoreCreateModal.jsx";
 import "./StoreCreate.css";
+
 const StoreCreate = () => {
   const [noOfMoreProdut, setNoOfMoreProdut] = useState(0);
   let moreProduct = [];
@@ -16,8 +18,16 @@ const StoreCreate = () => {
     let newValue = noOfMoreProdut + 1;
     setNoOfMoreProdut(newValue);
   };
+  const handleStoreCreateModal = (e) => {
+    e.preventDefault();
+    document.getElementById("my_modal_1").showModal();
+  };
+
   return (
     <div className="my-container">
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <StoreCreateModal />
+
       <form className="store-create">
         <h1>Store Creation</h1>
         <AdminInput type="text" id="store-name" text="Store Name" />
@@ -42,8 +52,10 @@ const StoreCreate = () => {
             alt="Icon awesome-plus-circle.png"
           />
         </div>
-        <div className="btn-container">
-          <button className="btn-primary">UPDATE</button>
+        <div className="store-create-btn-container">
+          <button onClick={handleStoreCreateModal} className="btn-primary">
+            CREATE
+          </button>
           <button className="btn-primary">CLEAR</button>
         </div>
       </form>

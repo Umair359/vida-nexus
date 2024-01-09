@@ -14,10 +14,10 @@ const AdminHeader = () => {
         {pathname === "/admin/invoice"
           ? "List of Invoice"
           : pathname === "/admin/profile"
-          ? "Admin Profile"
+          ? "Profile Settings"
           : pathname === "/admin/setting/layout"
-          ? "Admin Layout Setting"
-          : "Admin Product Setting"}
+          ? "Layout Setting"
+          : "Product Setting"}
       </h1>
       <div>
         <div>

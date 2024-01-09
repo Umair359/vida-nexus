@@ -1,0 +1,83 @@
+.store-created-popup {
+  background-color: white !important;
+  max-width: 1180px !important;
+  border-radius: 0 0 25px 25px !important;
+  padding: 60px 180px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/public/Images/Rectangle 321.png");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.store-created-popup > h3 {
+  font-size: 60px;
+  text-align: center;
+  color: #083239;
+}
+.store-created-popup > button {
+  margin-top: 20px;
+}
+.store-created-popup > p {
+  color: black;
+  margin-top: 40px;
+  font-weight: 600;
+  font-size: 18px;
+}
+.store-created-popup > span {
+  display: flex;
+  margin-top: 10px;
+  font-size: 18px;
+  color: black;
+}
+.store-created-popup > span > a {
+  color: #fa8708;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 1440px) {
+  .store-created-popup {
+    max-width: 980px !important;
+  }
+  .store-created-popup > h3 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1250px) {
+  .store-created-popup {
+    max-width: 860px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .store-created-popup {
+    max-width: 750px !important;
+    padding: 60px 120px !important;
+  }
+  .store-created-popup > h3 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .store-created-popup {
+    max-width: 300px !important;
+    padding: 60px 10px !important;
+  }
+  .store-created-popup > h3 {
+    font-size: 26px;
+  }
+  .store-created-popup > button {
+    margin-top: 10px;
+  }
+  .store-created-popup > p {
+    margin-top: 10px;
+  }
+  .store-created-popup p,
+  .store-created-popup a {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+}

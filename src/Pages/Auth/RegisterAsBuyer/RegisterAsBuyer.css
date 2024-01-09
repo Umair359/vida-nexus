@@ -1,0 +1,81 @@
+.register-as-user {
+  font-size: 60px;
+  border: 1px solid gainsboro;
+  margin-top: 60px;
+  padding: 40px 400px;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-image: url("/public/Images/Rectangle 321.png");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.register-as-user > h1 {
+  margin-left: 25px;
+  margin-top: 40px;
+}
+.register-as-user > div {
+  margin-top: 60px;
+}
+.register-as-user > div > div > label {
+  line-height: 0;
+}
+.register-as-user > div > div > input {
+  height: 55px;
+  background-color: rgba(177, 177, 177, 0.137);
+  font-size: 16px;
+  padding: 10px;
+  color: #444444;
+}
+.register-as-user > button {
+  margin-left: 30px;
+}
+
+@media (max-width: 1440px) {
+  .register-as-user {
+    padding: 40px 300px;
+  }
+}
+@media (max-width: 1250px) {
+  .register-as-user {
+    padding: 40px 200px;
+    font-size: 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .register-as-user {
+    padding: 40px 100px;
+    font-size: 40px;
+  }
+  .register-as-user > h1 {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .register-as-user {
+    padding: 40px;
+    font-size: 26px;
+  }
+  .register-as-user > div {
+    margin-top: 0px;
+  }
+  .register-as-user > div h4 {
+    font-size: 14px !important;
+    line-height: 1;
+  }
+  .register-as-user > div > div > input {
+    height: 45px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 576px) {
+  .register-as-user {
+    padding: 10px;
+    font-size: 26px;
+  }
+  .register-as-user > div {
+    margin-top: 10px;
+  }
+  .register-as-user > div > div > input {
+    height: 40px;
+  }
+}
