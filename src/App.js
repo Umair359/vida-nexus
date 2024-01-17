@@ -14,6 +14,7 @@ import RegisterAsPractitioner from "./Pages/Auth/RegisterAsPractitioner/Register
 import RegisterAsBuyer from "./Pages/Auth/RegisterAsBuyer/RegisterAsBuyer.jsx";
 import Login from "./Pages/Auth/Login/Login.jsx";
 import StoreCreate from "./Pages/StoreCreate/StoreCreate.jsx";
+import CardDetails from "./Pages/CardDetails/CardDetails.jsx";
 
 import Header from './Components/Header/Header.jsx'
 import Footer from './Components/Footer/Footer.jsx'
@@ -23,7 +24,12 @@ import Invoice from './Pages/Invoice/Invoice.jsx'
 import ProfileSettings from './Pages/ProfileSettings/ProfileSettings.jsx'
 import LayoutSettings from './Pages/LayoutSettings/LayoutSettings.jsx';
 import ProductSettings from './Pages/ProductSettings/ProductSettings.jsx';
+import ProductSettingsEdit from './Pages/ProductSettingsEdit/ProductSettingsEdit.jsx';
 import ServiceSettings from './Pages/ServiceSettings/ServiceSettings.jsx'
+import ServiceSettingsEdit from './Pages/ServiceSettingsEdit/ServiceSettingsEdit.jsx';
+import OrderHistory from './Pages/OrderHistory/OrderHistory .jsx';
+import ServiceHistory from './Pages/ServiceHistory/ServiceHistory.jsx';
+import ServiceHistoryDetail from './Pages/ServiceHistoryDetail/ServiceHistoryDetail.jsx';
 import DocuSign from './Pages/DocuSign/DocuSign.jsx';
 
 import "./App.css"
@@ -67,12 +73,23 @@ const App = () => {
           <Route path="/register-as-buyer" element={<PageLayout><RegisterAsBuyer /></PageLayout>} />
           <Route path="/login" element={<PageLayout><Login /></PageLayout>} />
           <Route path="/store/create" element={<PageLayout><StoreCreate /></PageLayout>} />
+          <Route path="/card/details" element={<PageLayout><CardDetails /></PageLayout>} />
+
+
           <Route path={"/admin"} element={<Dashboard />}>
             <Route path="invoice" element={<Invoice />} />
             <Route path="profile" element={<ProfileSettings />} />
             <Route path="setting/layout" element={<LayoutSettings />} />
             <Route path="setting/product" element={<ProductSettings />} />
+            <Route path="setting/product/edit" element={<ProductSettingsEdit />} />
             <Route path="setting/service" element={<ServiceSettings />} />
+            <Route path="setting/service/edit" element={<ServiceSettingsEdit />} />
+
+            <Route path="order/history" element={<OrderHistory />} />
+            <Route path="service/history" element={<ServiceHistory />} />
+            <Route path="service/history/detail" element={<ServiceHistoryDetail />} />
+
+
             <Route path="docusign" element={<DocuSign />} />
           </Route>
         </Routes>

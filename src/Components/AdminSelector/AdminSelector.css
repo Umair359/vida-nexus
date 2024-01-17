@@ -1,0 +1,10 @@
+.admin-selector {
+  border: 1px solid gainsboro;
+  padding: 5px;
+  margin: 0 30px;
+  border-radius: 10px;
+}
+.admin-selector > select {
+  appearance: none;
+  background-color: transparent;
+}

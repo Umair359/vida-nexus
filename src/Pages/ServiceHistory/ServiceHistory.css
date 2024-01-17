@@ -1,0 +1,9 @@
+.admin-service-table h3 {
+  text-align: center;
+}
+.view-all {
+  background-color: #083239;
+  width: fit-content;
+  box-shadow: none;
+  margin-right: 80px;
+}

@@ -1,0 +1,22 @@
+.time-select {
+  width: 280px;
+  margin-top: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  background-image: url("/public//Images/dropDownIcon.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: center;
+}
+.time-select > select {
+  width: 100%;
+  outline: none;
+  padding: 15px;
+  padding-left: 50px;
+  appearance: none;
+  background-color: transparent;
+  background-image: url("/public/Images/clockIcon.png");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
+}

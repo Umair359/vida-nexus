@@ -1,0 +1,15 @@
+.admin-service-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 10px;
+}
+.admin-service-card > div {
+  width: 300px !important;
+}
+@media (max-width: 1600px) {
+  .admin-service-card > div {
+    width: 280px !important;
+  }
+}

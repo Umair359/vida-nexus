@@ -1,0 +1,46 @@
+.btn-pending {
+  background-color: #fa2108;
+  width: 10%;
+}
+.btn-delivered {
+  background-color: #ffad01;
+  width: 10%;
+}
+.admin-service-product-filter {
+  display: flex;
+  justify-content: space-between;
+}
+.admin-service-product-filter > div {
+  display: flex;
+  gap: 20px;
+}
+.admin-service-product-filter > div > button {
+  border: 2px solid #083239;
+  border-radius: 10px;
+  padding: 10px 30px;
+  color: #083239;
+  text-transform: uppercase;
+}
+.admin-service-product-filter > div > .active {
+  background-color: #083239;
+  color: white;
+}
+.admin-service-product-filter > div > input {
+  background-color: transparent;
+  width: 450px;
+  border: 2px solid #999999;
+  border-radius: 10px;
+  padding: 10px;
+  background-image: url("/public/Images/SearchIcon.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: calc(100% - 10px);
+}
+.admin-table-order > div > h3,
+.admin-table-order > div > p {
+  width: 10%;
+}
+
+.admin-service-product-filter > div > input:hover {
+  cursor: pointer;
+}

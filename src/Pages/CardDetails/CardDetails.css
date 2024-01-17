@@ -1,0 +1,132 @@
+.card-details {
+  width: 63%;
+  margin: auto;
+  margin-top: 40px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-image: url("/public/Images/Rectangle 321.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 60px 150px;
+}
+.card-details > h1 {
+  font-size: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
+}
+.card-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+.card-detail-container > div {
+  display: flex;
+  gap: 20px;
+}
+.card-detail-container > div > input,
+.card-detail-container > div > select,
+.card-detail-container > div > p {
+  width: 50%;
+}
+.card-detail-container > div > p {
+  font-weight: 500;
+  color: #777777;
+}
+
+.card-detail-container > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  height: 60px;
+  gap: 10px;
+}
+.card-detail-container > button:nth-child(4) {
+  background-color: #fa8708;
+}
+.card-detail-container > button:nth-child(5) {
+  background-color: #253b80;
+}
+.card-input {
+  background-color: transparent;
+  border: 1px solid gainsboro;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+.card-month-select {
+  border: 1px solid gainsboro;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  border-radius: 10px;
+  appearance: none;
+  background-image: url("/public/Images/Group 3345.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  background-size: contain;
+}
+
+@media (max-width: 1440px) {
+  .card-details {
+    padding: 60px 110px;
+  }
+  .card-details > h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1250px) {
+  .card-details {
+    width: 70%;
+    padding: 60px 80px;
+  }
+}
+@media (max-width: 1024px) {
+  .card-details {
+    width: 90%;
+    padding: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .card-details {
+    width: 100%;
+    padding: 20px;
+  }
+  .card-details > h1 {
+    font-size: 26px;
+    padding: 0;
+    border: none;
+    margin-top: 10px;
+  }
+  .card-details > div {
+    margin-top: 10px;
+    gap: 10px;
+  }
+  .card-details > div input,
+  .card-details > div select {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+  .card-details > div p {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .card-details > div button {
+    height: 40px;
+    font-size: 13px;
+  }
+  .card-details > div button > img {
+    height: 80%;
+  }
+}
+@media (max-width: 576px) {
+}

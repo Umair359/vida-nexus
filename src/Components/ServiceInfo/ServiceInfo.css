@@ -1,0 +1,17 @@
+.service-info {
+  margin-left: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.service-info > h3 {
+  font-size: 22px;
+  color: #000 !important;
+}
+.service-info > p {
+  color: #515151;
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 30px;
+}
