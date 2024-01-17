@@ -41,7 +41,7 @@ const PageLayout = ({ children }) => (
     <Footer />
   </>
 );
-/*Halou*/
+
 
 const App = () => {
 
@@ -75,7 +75,6 @@ const App = () => {
           <Route path="/store/create" element={<PageLayout><StoreCreate /></PageLayout>} />
           <Route path="/card/details" element={<PageLayout><CardDetails /></PageLayout>} />
 
-
           <Route path={"/admin"} element={<Dashboard />}>
             <Route path="invoice" element={<Invoice />} />
             <Route path="profile" element={<ProfileSettings />} />
@@ -84,14 +83,12 @@ const App = () => {
             <Route path="setting/product/edit" element={<ProductSettingsEdit />} />
             <Route path="setting/service" element={<ServiceSettings />} />
             <Route path="setting/service/edit" element={<ServiceSettingsEdit />} />
-
             <Route path="order/history" element={<OrderHistory />} />
             <Route path="service/history" element={<ServiceHistory />} />
             <Route path="service/history/detail" element={<ServiceHistoryDetail />} />
-
-
             <Route path="docusign" element={<DocuSign />} />
           </Route>
+
         </Routes>
 
       </BrowserRouter>

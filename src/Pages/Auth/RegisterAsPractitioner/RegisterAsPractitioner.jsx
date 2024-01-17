@@ -1,45 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminInput from "../../../Components/AdminInput/AdminInput";
 import "./RegisterAsPractitioner.css";
-import AdminInputDes from "../../../Components/AdminInputDes/AdminInputDes";
-import AdminInputFile from "../../../Components/AdminInputFile/AdminInputFile";
+import {
+  useCreatePractitionerMutation,
+  useRegisterUserMutation,
+} from "../../../api/appApi";
+import { errorNotify, successNotify } from "../../../Helper/Toast.js";
 import { useNavigate } from "react-router-dom";
 const RegisterAsPractitioner = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [registerUser] = useRegisterUserMutation();
+  const [createPractitioner] = useCreatePractitionerMutation();
+  const [userData, setUserData] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleRegisterPractitioner = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("name", userData.name);
+      formData.append("phone", userData.contact);
+      formData.append("email", userData.email);
+      formData.append("password", userData.password);
+      formData.append("role", "practitioner");
+      const res = await registerUser(formData);
+      if (res.error) {
+        errorNotify("User already exist");
+      } else {
+        successNotify("You are Registed Successfully");
+        try {
+          const res = await createPractitioner();
+          if (res.error) {
+            errorNotify("Preactitioner can't create");
+          } else {
+            successNotify("Practititioner is Created");
+            navigate("/admin");
+          }
+          setLoading(false);
+        } catch (error) {
+          errorNotify("Something went wrong");
+          setLoading(false);
+        }
+      }
+    } catch (error) {
+      errorNotify("Something went wrong");
+      setLoading(false);
+    }
+  };
+
+  const handleInputChange = (inputId, inputValue) => {
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [inputId]: inputValue,
+    }));
+  };
+
   return (
     <div className="my-container">
-      <form className="register-as-practioneer">
+      <form onSubmit={handleRegisterPractitioner} className="register-as-user">
         <h1>Register as Practitioner</h1>
         <div>
-          <AdminInput type="text" id="register-practioneer-name" text="Name" />
           <AdminInput
+            handleInputChange={handleInputChange}
             type="text"
-            id="register-user-contact"
+            id="name"
+            text="Name"
+          />
+          <AdminInput
+            handleInputChange={handleInputChange}
+            type="text"
+            id="contact"
             text="Contact No"
           />
           <AdminInput
+            handleInputChange={handleInputChange}
             type="text"
-            id="register-practioneer-email"
+            id="email"
             text="Email"
           />
           <AdminInput
+            handleInputChange={handleInputChange}
             type="password"
-            id="register-practioneer-password"
+            id="password"
             text="Password"
           />
           <AdminInput
+            handleInputChange={handleInputChange}
             type="password"
-            id="register-practioneer-confirm-password"
+            id="confirmPassword"
             text="Confirm Password"
           />
-          <AdminInputDes text="Description" />
-          <AdminInputFile text="Upload Picture" />
         </div>
-        <button
-          onClick={() => navigate("/admin/setting/service")}
-          className="btn-primary"
-        >
-          CREATE ACCOUNT
+        <button onClick={handleRegisterPractitioner} className="btn-primary">
+          {loading ? "Loading" : "CREATE ACCOUNT"}
         </button>
       </form>
     </div>
