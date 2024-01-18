@@ -42,6 +42,7 @@ const Login = () => {
     } catch (error) {
       errorNotify("Something went wrong");
     }
+    setLoading(false);
   };
   return (
     <div className="my-container">
