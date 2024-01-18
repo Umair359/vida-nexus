@@ -3,6 +3,7 @@ import AdminInput from "../../../Components/AdminInput/AdminInput";
 import { useLoginUserMutation } from "../../../api/appApi";
 import { errorNotify, successNotify } from "../../../Helper/Toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../Helper/Loader";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ const Login = () => {
           />
         </div>
         <button className="btn-primary">
-          {loading ? "Loading..." : "Login"}
+          {loading ? <Loader /> : "LOGIN"}
         </button>
       </form>
     </div>

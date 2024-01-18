@@ -7,6 +7,7 @@ import {
 } from "../../../api/appApi";
 import { errorNotify, successNotify } from "../../../Helper/Toast.js";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../Helper/Loader.js";
 const RegisterAsPractitioner = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -22,36 +23,48 @@ const RegisterAsPractitioner = () => {
   const handleRegisterPractitioner = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      const formData = new FormData();
-      formData.append("name", userData.name);
-      formData.append("phone", userData.contact);
-      formData.append("email", userData.email);
-      formData.append("password", userData.password);
-      formData.append("role", "practitioner");
-      const res = await registerUser(formData);
-      if (res.error) {
-        errorNotify("User already exist");
-      } else {
-        successNotify("You are Registed Successfully");
-        try {
-          const res = await createPractitioner();
-          if (res.error) {
-            errorNotify("Preactitioner can't create");
-          } else {
-            successNotify("Practititioner is Created");
-            navigate("/admin");
+    if (
+      userData.name === "" ||
+      userData.contact === "" ||
+      userData.email === "" ||
+      userData.password === "" ||
+      userData.confirmPassword === ""
+    ) {
+      errorNotify("Feilds are missing");
+    } else if (userData.password !== userData.confirmPassword) {
+      errorNotify("Password does not match");
+    } else {
+      try {
+        const formData = new FormData();
+        formData.append("name", userData.name);
+        formData.append("phone", userData.contact);
+        formData.append("email", userData.email);
+        formData.append("password", userData.password);
+        formData.append("role", "practitioner");
+        const res = await registerUser(formData);
+        if (res?.error?.data?.error) {
+          errorNotify(res.error.data.error);
+        } else {
+          successNotify("You are Registed Successfully");
+          try {
+            const res = await createPractitioner();
+            if (res?.error?.data?.error) {
+              errorNotify(res.error.data.error);
+            } else {
+              successNotify("Practititioner is Created");
+              navigate("/admin");
+            }
+          } catch (error) {
+            console.log(error);
+            errorNotify("Something went wrong");
           }
-          setLoading(false);
-        } catch (error) {
-          errorNotify("Something went wrong");
-          setLoading(false);
         }
+      } catch (error) {
+        console.log(error);
+        errorNotify("Something went wrong");
       }
-    } catch (error) {
-      errorNotify("Something went wrong");
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   const handleInputChange = (inputId, inputValue) => {
@@ -98,7 +111,7 @@ const RegisterAsPractitioner = () => {
           />
         </div>
         <button onClick={handleRegisterPractitioner} className="btn-primary">
-          {loading ? "Loading" : "CREATE ACCOUNT"}
+          {loading ? <Loader /> : "CREATE ACCOUNT"}
         </button>
       </form>
     </div>

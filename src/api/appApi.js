@@ -32,6 +32,13 @@ export const AppApi = createApi({
                 body: formData
             })
         }),
+        createCustomer: builder.mutation({
+            query: (formData) => ({
+                url: "customers/create",
+                method: "POST",
+                body: formData
+            })
+        }),
     })
 
 })
@@ -40,4 +47,5 @@ export const {
     useLoginUserMutation,
     useRegisterUserMutation,
     useCreatePractitionerMutation,
+    useCreateCustomerMutation,
 } = AppApi
