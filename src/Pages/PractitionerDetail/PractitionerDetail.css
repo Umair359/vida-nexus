@@ -34,6 +34,9 @@
 }
 .practitioner-detail-header > div:first-child > img {
   width: 500px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .practitioner-detail-header > div:last-child {
   padding: 30px 60px;
@@ -42,6 +45,7 @@
   flex-direction: column;
   gap: 20px;
 }
+
 .practitioner-detail-header > div > h3 {
   font-size: 26px;
 }

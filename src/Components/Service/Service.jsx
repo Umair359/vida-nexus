@@ -2,7 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import ServiceCard from "../../Components/ServiceCard/ServiceCard.jsx";
 
-const Service = () => {
+const Service = ({ serviceSchedule }) => {
+  console.log(serviceSchedule);
   const serviceSliderSettings = {
     dots: true,
     infinite: true,
@@ -34,11 +35,9 @@ const Service = () => {
 
   return (
     <Slider {...serviceSliderSettings}>
-      <ServiceCard />
-      <ServiceCard />
-      <ServiceCard />
-      <ServiceCard />
-      <ServiceCard />
+      {serviceSchedule?.map((item) => {
+        return <ServiceCard item={item} />;
+      })}
     </Slider>
   );
 };

@@ -1,31 +1,31 @@
 import React from "react";
 
-const Loader = () => {
-    const loaderStyle = {
-        width: "20px",
-        height: "20px",
-        border: "3px solid #FFF",
-        borderBottomColor: "transparent",
-        borderRadius: "50%",
-        display: "inline-block",
-        boxSizing: "border-box",
-        animation: "rotation 1s linear infinite",
-    };
+const Loader = ({ color = "#FFF", size = "20px" }) => {
+  const loaderStyle = {
+    width: size,
+    height: size,
+    border: `3px solid ${color}`,
+    borderBottomColor: "transparent",
+    borderRadius: "50%",
+    display: "inline-block",
+    boxSizing: "border-box",
+    animation: "rotation 1s linear infinite",
+  };
 
-    return (
-        <>
-            <span style={loaderStyle}></span>
-            <style>
-                {`
+  return (
+    <>
+      <span style={loaderStyle}></span>
+      <style>
+        {`
           @keyframes rotation {
             to {
               transform: rotate(360deg);
             }
           }
         `}
-            </style>
-        </>
-    );
+      </style>
+    </>
+  );
 };
 
 export default Loader;

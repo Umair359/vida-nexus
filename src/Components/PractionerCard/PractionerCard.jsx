@@ -1,29 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-const PractionerCard = () => {
+import { IoStar } from "react-icons/io5";
+import { ImagebaseUrl } from "../../Helper/constant";
+const PractionerCard = ({ image, name, description, id, rating }) => {
   const navigate = useNavigate();
   return (
-    <div className="practionser">
+    <div key={id} className="practionser">
       <div className="practionser-heading">
-        <img src="/Images/practitioner1.png" alt="practitioner1" />
+        <img src={`${ImagebaseUrl}/users/${image}`} alt={image} />
         <div>
-          <h3>Name Here</h3>
+          <h3>{name}</h3>
           <div>
-            <img src="/Images/startIcon.png" alt="starIcon" />
-            <img src="/Images/startIcon.png" alt="starIcon" />
-            <img src="/Images/startIcon.png" alt="starIcon" />
-            <img src="/Images/startIcon.png" alt="starIcon" />
-            <img src="/Images/startIcon.png" alt="starIcon" />
+            <IoStar fill={rating >= 1 ? "orange" : "#aaaaaa"} />
+            <IoStar fill={rating >= 2 ? "orange" : "#aaaaaa"} />
+            <IoStar fill={rating >= 3 ? "orange" : "#aaaaaa"} />
+            <IoStar fill={rating >= 4 ? "orange" : "#aaaaaa"} />
+            <IoStar fill={rating >= 5 ? "orange" : "#aaaaaa"} />
           </div>
         </div>
       </div>
       <div className="practionser-description">
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry printing and typesetting industry.
-        </p>
+        <p>{description}</p>
         <button
-          onClick={() => navigate("/practitioner/123456789")}
+          onClick={() => navigate(`/practitioner/${id}`)}
           className="btn-primary"
         >
           VIEW DETAILS

@@ -24,6 +24,10 @@
 }
 .testimonial-card > div > img {
   margin: 40px auto 0 auto;
+  width: 60px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .testimonial-card > div > p {
   font-weight: bold;

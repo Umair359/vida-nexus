@@ -11,8 +11,11 @@ import PractitionerStoreProduct from './Pages/PractitionerStoreProduct/Practitio
 import Pricing from "./Pages/Pricing/Pricing.jsx";
 import Contact from "./Pages/Contact/Contact.jsx";
 import RegisterAsPractitioner from "./Pages/Auth/RegisterAsPractitioner/RegisterAsPractitioner.jsx";
+import ConfirmEmail from "./Pages/Auth/ConfirmEmail/ConfirmEmail.jsx"
 import RegisterAsBuyer from "./Pages/Auth/RegisterAsBuyer/RegisterAsBuyer.jsx";
 import Login from "./Pages/Auth/Login/Login.jsx";
+import ForgotPassword from './Pages/Auth/ForgotPassword/ForgotPassword.jsx';
+import ResetPassword from './Pages/Auth/ResetPassword/ResetPassword.jsx';
 import StoreCreate from "./Pages/StoreCreate/StoreCreate.jsx";
 import CardDetails from "./Pages/CardDetails/CardDetails.jsx";
 
@@ -31,6 +34,8 @@ import OrderHistory from './Pages/OrderHistory/OrderHistory .jsx';
 import ServiceHistory from './Pages/ServiceHistory/ServiceHistory.jsx';
 import ServiceHistoryDetail from './Pages/ServiceHistoryDetail/ServiceHistoryDetail.jsx';
 import DocuSign from './Pages/DocuSign/DocuSign.jsx';
+import ScrollToTop from './Helper/ScrollToTop.jsx';
+
 
 import "./App.css"
 
@@ -59,7 +64,7 @@ const App = () => {
         pauseOnHover
         theme="light" />
       <BrowserRouter>
-
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<PageLayout><Home /></PageLayout>} />
           <Route path="/about" element={<PageLayout><About /></PageLayout>} />
@@ -72,8 +77,13 @@ const App = () => {
           <Route path="/register-as-practitioner" element={<PageLayout><RegisterAsPractitioner /></PageLayout>} />
           <Route path="/register-as-buyer" element={<PageLayout><RegisterAsBuyer /></PageLayout>} />
           <Route path="/login" element={<PageLayout><Login /></PageLayout>} />
+          <Route path="/login/forgot-password" element={<PageLayout><ForgotPassword /></PageLayout>} />
+          <Route path="/reset-password" element={<PageLayout><ResetPassword /></PageLayout>} />
+
+
           <Route path="/store/create" element={<PageLayout><StoreCreate /></PageLayout>} />
           <Route path="/card/details" element={<PageLayout><CardDetails /></PageLayout>} />
+          <Route path="/register/confirm-email" element={<PageLayout><ConfirmEmail /></PageLayout>} />
 
           <Route path={"/admin"} element={<Dashboard />}>
             <Route path="invoice" element={<Invoice />} />

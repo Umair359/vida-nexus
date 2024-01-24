@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import AdminInput from "../../../Components/AdminInput/AdminInput";
 import "./RegisterAsPractitioner.css";
-import {
-  useCreatePractitionerMutation,
-  useRegisterUserMutation,
-} from "../../../api/appApi";
-import { errorNotify, successNotify } from "../../../Helper/Toast.js";
-import { useNavigate } from "react-router-dom";
+import { useRegisterUserMutation } from "../../../api/appApi";
+import { errorNotify } from "../../../Helper/Toast.js";
 import Loader from "../../../Helper/Loader.js";
+import ResgiterConfirmModal from "../../ResgiterConfirmModal/ResgiterConfirmModal.jsx";
 const RegisterAsPractitioner = () => {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [registerUser] = useRegisterUserMutation();
-  const [createPractitioner] = useCreatePractitionerMutation();
   const [userData, setUserData] = useState({
     name: "",
     contact: "",
@@ -22,6 +17,7 @@ const RegisterAsPractitioner = () => {
   });
   const handleRegisterPractitioner = async (e) => {
     e.preventDefault();
+
     setLoading(true);
     if (
       userData.name === "" ||
@@ -45,19 +41,7 @@ const RegisterAsPractitioner = () => {
         if (res?.error?.data?.error) {
           errorNotify(res.error.data.error);
         } else {
-          successNotify("You are Registed Successfully");
-          try {
-            const res = await createPractitioner();
-            if (res?.error?.data?.error) {
-              errorNotify(res.error.data.error);
-            } else {
-              successNotify("Practititioner is Created");
-              navigate("/admin");
-            }
-          } catch (error) {
-            console.log(error);
-            errorNotify("Something went wrong");
-          }
+          document.getElementById("my_modal_2").showModal();
         }
       } catch (error) {
         console.log(error);
@@ -78,6 +62,7 @@ const RegisterAsPractitioner = () => {
     <div className="my-container">
       <form onSubmit={handleRegisterPractitioner} className="register-as-user">
         <h1>Register as Practitioner</h1>
+        <ResgiterConfirmModal />
         <div>
           <AdminInput
             handleInputChange={handleInputChange}

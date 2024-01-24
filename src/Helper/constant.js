@@ -1,0 +1,1 @@
+export const ImagebaseUrl = 'https://vida-nexus.azurewebsites.net/assets/uploads/'

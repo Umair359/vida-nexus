@@ -1,16 +1,19 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ServiceCard.css";
-const ServiceCard = ({ isDashboard = false }) => {
+import { ImagebaseUrl } from "../../Helper/constant";
+const ServiceCard = ({ isDashboard = false, item = null }) => {
   const navigate = useNavigate();
+  console.log(item);
   return (
     <div className="card">
-      <img src="/Images/service1.png" alt="service1" />
+      <img
+        src={`${ImagebaseUrl}/services/${item?.service?.serviceImages[0].filename}`}
+        alt={item?.service?.serviceImages[0].filename}
+      />
       <div className="card-text">
-        <h3>Service 01</h3>
-        <p>
-          Lorem Ipsum is simply text of the pricing and typesetting industry
-        </p>
+        <h3>{item?.service?.name}</h3>
+        <p>{item?.service?.description}</p>
         {isDashboard ? (
           <div className="edit-delete-btn">
             <button onClick={() => navigate("edit")} className="edit-btn">

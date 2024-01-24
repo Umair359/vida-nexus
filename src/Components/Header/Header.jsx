@@ -9,7 +9,7 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="header">
+    <div className="header" id="header_id">
       <div className="header-lg">
         <img
           onClick={() => navigate("/")}

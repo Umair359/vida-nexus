@@ -22,6 +22,71 @@
   background-color: white;
   border-radius: 45px 45px 45px 15px;
 }
+.practionsers-filter {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+.practionsers-filter > div {
+  display: flex;
+  gap: 10px;
+}
+.practionsers-filter > div h4 {
+  font-size: 22px;
+  color: #083239;
+}
+.practionsers-filter > div select {
+  background-color: orange;
+  border: 2px solid transparent;
+  color: white;
+}
+/* .practionsers-filter > div input {
+  border: none !important;
+  width: 2rem;
+  height: 2rem;
+  accent-color: green;
+} */
+input[type="checkbox"] {
+  position: relative;
+  border: 2px solid orangered;
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  margin: 0.4em 1em 0 0;
+  outline: 0;
+  padding: 0 !important;
+  vertical-align: text-top;
+  height: 22px;
+  width: 22px;
+  appearance: none;
+}
+
+input[type="checkbox"]:hover {
+  opacity: 1;
+}
+
+input[type="checkbox"]:checked {
+  background-color: orange;
+  opacity: 1;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  margin: -1px -1px 0 -1px;
+  transform: rotate(45deg) translate(-50%, -50%);
+  z-index: 2;
+}
 .practionser-heading {
   display: flex;
   align-items: center;
@@ -30,6 +95,8 @@
 .practionser-heading > img {
   width: 110px;
   height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .practionser-heading > div {
   margin-bottom: 20px;
@@ -46,6 +113,9 @@
   display: flex;
   gap: 5px;
 }
+.practionser-heading svg {
+  width: 20px;
+}
 .practionser-description > p {
   font-size: 20px;
   color: #707070;
@@ -54,7 +124,6 @@
 }
 .practionser-description > button {
   float: left;
-  margin-left: 20px;
 }
 @media (max-width: 1500px) {
   .practionsers {
@@ -98,4 +167,39 @@
     font-size: 30px;
     text-align: center;
   }
+}
+
+.product-shop-filter-section6 {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: auto;
+}
+.product-shop-filter-section6 > div {
+  display: flex;
+  gap: 15px;
+}
+.product-shop-filter-section6 > div > svg {
+  width: 30px;
+  height: 30px;
+}
+.product-shop-filter-section6 > div > svg:hover {
+  opacity: 0.4;
+}
+
+.product-shop-filter-section6 > p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.product-shop-filter-section6 h3 {
+  font-size: 26px;
+  color: #083239;
+  padding-right: 10px;
+}
+
+.clear-filter {
+  border: 2px solid #083239;
+  border-radius: 10px;
+  padding: 5px 10px;
 }

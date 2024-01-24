@@ -1,0 +1,18 @@
+.confirm-mail {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.confirm-mail h1 {
+  font-size: 60px;
+  text-align: center;
+}
+.confirm-mail p {
+  text-align: center;
+}
+.confirm-mail #delete {
+  color: #c70000;
+}
+.confirm-mail #success {
+  color: #198754;
+}

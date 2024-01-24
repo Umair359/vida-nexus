@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AdminInput from "../../../Components/AdminInput/AdminInput";
 import { useLoginUserMutation } from "../../../api/appApi";
 import { errorNotify, successNotify } from "../../../Helper/Toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../../Helper/Loader";
 
 const Login = () => {
@@ -30,14 +30,16 @@ const Login = () => {
       const res = await loginUser(formData);
       console.log(res);
       if (res.error) {
-        errorNotify("Something went wrong");
+        errorNotify(res.error.data.error);
       } else {
         successNotify("You are Login Successfully");
         setUserData({
           email: "",
           password: "",
         });
-        navigate("/");
+        res?.data?.user?.role === "practitioner"
+          ? navigate("/admin")
+          : navigate("/");
       }
     } catch (error) {
       errorNotify("Something went wrong");
@@ -61,6 +63,7 @@ const Login = () => {
             id="password"
             text="Password"
           />
+          <Link to={"forgot-password"}>Forgotten Password?</Link>
         </div>
         <button className="btn-primary">
           {loading ? <Loader /> : "LOGIN"}
