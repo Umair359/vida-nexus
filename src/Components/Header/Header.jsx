@@ -2,12 +2,33 @@ import React, { useState } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
+import { useGetUserQuery, useLogoutUserMutation } from "../../api/appApi";
+import { ImagebaseUrl } from "../../Helper/constant";
+import { errorNotify, successNotify } from "../../Helper/Toast";
+import Cookies from "js-cookie";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  const { isLoading, data, refetch } = useGetUserQuery();
+  console.log(isLoading, data, "getProfile");
+  const [logout] = useLogoutUserMutation();
+  const handleLogout = async () => {
+    try {
+      const res = await logout();
+      console.log(res);
+      if (res?.data?.success) {
+        successNotify("Logged Out Successfully");
+        Cookies.remove("token");
+        setTimeout(() => {
+          navigate("/");
+          window.location.reload();
+        }, 2000);
+      }
+    } catch (error) {
+      errorNotify("Something went wrong");
+    }
+  };
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
   return (
     <div className="header" id="header_id">
       <div className="header-lg">
@@ -24,56 +45,89 @@ const Header = () => {
           <Link to={"/contact"}>CONTACT US</Link>
         </nav>
         <div>
-          <div className="header-login-container">
-            <img src="/Images/Login.png" alt="signInIcon" />
+          {!isLoading && data?.success ? (
+            <div className="header-login-container">
+              <img src="/Images/Login.png" alt="signInIcon" />
 
-            <p>Already have an Account?</p>
-            <Link to={"/login"}>Sign in</Link>
-          </div>
-          <div className="btn-container">
-            <button
-              onClick={() => navigate("/register-as-practitioner")}
-              className="btn-primary"
-            >
-              REGISTER AS PRACTITIONER
-            </button>
-            <button
-              onClick={() => navigate("/register-as-buyer")}
-              className="btn-secondary"
-            >
-              REGISTER AS BUYER
-            </button>
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="dropdown-btn"
-                onClick={() => setIsDrawerOpen(true)}
-              >
-                <IoMenu />
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content mt-8 menu p-2 shadow bg-base-100 rounded-box w-48"
-              >
-                <li>
-                  <Link to={"/"}>HOME</Link>
-                </li>
-                <li>
-                  <Link to={"/about"}>ABOUT US</Link>
-                </li>
-                <li>
-                  <Link to={"/practitioner"}>PRACTITIONER</Link>
-                </li>
-                <li>
-                  <Link to={"/pricing"}>PRICING</Link>
-                </li>
-                <li>
-                  <Link to={"/contact"}>CONTACT US</Link>
-                </li>
-              </ul>
+              <p></p>
+              <button onClick={handleLogout}>Sign Out</button>
             </div>
-          </div>
+          ) : (
+            <div className="header-login-container">
+              <img src="/Images/Login.png" alt="signInIcon" />
+
+              <p>Already have an Account?</p>
+              <Link to={"/login"}>Sign in</Link>
+            </div>
+          )}
+
+          {
+            <div className="btn-container">
+              {!isLoading && data?.success ? (
+                <img
+                  src={`${ImagebaseUrl}/users/${data?.data?.userImages[0]?.filename}`}
+                  alt={data?.data?.userImages[0]?.filename}
+                />
+              ) : null}
+              <div className="dropdown dropdown-end">
+                {!isLoading && data?.success ? (
+                  <>
+                    {" "}
+                    <button
+                      onClick={() => navigate("/admin")}
+                      className="btn-primary"
+                    >
+                      GO TO DASHBOARD
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => navigate("/register-as-practitioner")}
+                      className="btn-primary"
+                    >
+                      REGISTER AS PRACTITIONER
+                    </button>
+                    <button
+                      onClick={() => navigate("/register-as-buyer")}
+                      className="btn-secondary"
+                    >
+                      REGISTER AS BUYER
+                    </button>
+                  </>
+                )}
+
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="dropdown-btn"
+                  onClick={() => setIsDrawerOpen(true)}
+                >
+                  <IoMenu />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content mt-8 menu p-2 shadow bg-base-100 rounded-box w-48"
+                >
+                  <li>
+                    <Link to={"/"}>HOME</Link>
+                  </li>
+                  <li>
+                    <Link to={"/about"}>ABOUT US</Link>
+                  </li>
+                  <li>
+                    <Link to={"/practitioner"}>PRACTITIONER</Link>
+                  </li>
+                  <li>
+                    <Link to={"/pricing"}>PRICING</Link>
+                  </li>
+                  <li>
+                    <Link to={"/contact"}>CONTACT US</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          }
         </div>
         <div className="drawer header-drawer">
           <input

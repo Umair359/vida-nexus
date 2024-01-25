@@ -1,1 +1,1 @@
-export const ImagebaseUrl = 'https://vida-nexus.azurewebsites.net/assets/uploads/'
+export const ImagebaseUrl = 'https://ffaf-39-50-165-45.ngrok-free.app/assets/uploads/'

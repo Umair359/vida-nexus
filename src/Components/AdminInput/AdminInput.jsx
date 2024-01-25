@@ -1,16 +1,35 @@
 import React from "react";
 import "./AdminInput.css";
-const AdminInput = ({ type, id, text, handleInputChange }) => {
+const AdminInput = ({
+  className = "admin-input",
+  type,
+  id,
+  text,
+  handleInputChange,
+  value = "",
+  display = "",
+}) => {
   return (
-    <div className="admin-input">
+    <div className={className}>
       <label htmlFor={id}>
         <h4>{text}</h4>
       </label>
-      <input
-        type={type}
-        id={id}
-        onChange={(e) => handleInputChange(id, e.target.value)}
-      />
+      {display === "" ? (
+        <input
+          placeholder={value}
+          type={type}
+          id={id}
+          onChange={(e) => handleInputChange(id, e.target.value)}
+        />
+      ) : (
+        <input
+          placeholder={value}
+          type={type}
+          id={id}
+          value={display}
+          onChange={(e) => handleInputChange(id, e.target.value)}
+        />
+      )}
     </div>
   );
 };

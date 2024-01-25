@@ -29,8 +29,11 @@
   align-items: center;
   gap: 20px;
 }
-.admin-profile-section1 > img {
+.admin-profile-section1 img {
   width: 140px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .admin-profile-section1 > p {
   color: #083239;
@@ -54,4 +57,27 @@
 .admin-password > form > button {
   margin: 20px 40px 60px 40px !important;
   width: 150px;
+}
+
+.admin-profile-inputs {
+  width: 50%;
+  margin-left: 25px;
+}
+.admin-profile-input {
+  margin: 30px 30px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+.admin-profile-input > label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.admin-profile-input > input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  height: 45px;
+  background-color: transparent;
 }

@@ -56,9 +56,18 @@
   transform: translateY(32px);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 }
 
+.btn-container img {
+  width: 60px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.btn-container .btn-secondary {
+  margin-left: 20px;
+}
 .dropdown-btn {
   display: none;
 }

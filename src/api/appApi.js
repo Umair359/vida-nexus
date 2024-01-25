@@ -5,11 +5,14 @@ export const AppApi = createApi({
     reducerPath: 'appApi',
     baseQuery: fetchBaseQuery({
         // baseUrl: 'http://localhost:5000/api/v1',
-        baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
-        // baseUrl: 'https://f0ee-39-50-165-45.ngrok-free.app/api/v1',
+        // baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
+        baseUrl: 'https://ffaf-39-50-165-45.ngrok-free.app/api/v1',
         credentials: "include"
     }),
     endpoints: (builder) => ({
+
+        //POST
+
         loginUser: builder.mutation({
             query: (formData) => ({
                 url: "auth/login",
@@ -18,6 +21,14 @@ export const AppApi = createApi({
             }),
             invalidatesTags: ['user']
         }),
+        logoutUser: builder.mutation({
+            query: () => ({
+                url: "auth/logout",
+                method: "POST",
+            }),
+            invalidatesTags: ['user']
+        }),
+
         fotgotPassword: builder.mutation({
             query: (formData) => ({
                 url: "auth/forgot",
@@ -54,15 +65,23 @@ export const AppApi = createApi({
         getConfirmEmail: builder.query({
             query: (token) => `auth/confirmemail${token}`
         }),
-
+        getUser: builder.query({
+            query: () => `auth/profile`,
+            providesTags: ['user']
+        }),
+        getPractitioner: builder.query({
+            query: () => `practitioners/get`,
+            providesTags: ['practitioner-profile']
+        }),
         getListOfPractitioner: builder.query({
             query: ({ category, rating, page }) => `front-end/practitioners-list?rating=${rating}&category=${category}&page=${page}`,
             invalidatesTags: "list-of-practitioner"
         }),
-
         getPractitionerDetails: builder.query({
             query: (id) => `front-end/practitioner-details/${id}`,
         }),
+
+
 
         //PUT
         updateResetPassword: builder.mutation({
@@ -72,7 +91,35 @@ export const AppApi = createApi({
                 body: formData,
             })
         }),
-
+        updateProfile: builder.mutation({
+            query: (formData) => {
+                return {
+                    url: `auth/update-profile`,
+                    method: 'PUT',
+                    body: formData,
+                };
+            },
+            options: {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            },
+        }),
+        updatePractitioner: builder.mutation({
+            query: (formData) => ({
+                url: `practitioners/update-practitioner`,
+                method: 'PUT',
+                body: formData,
+            })
+        }),
+        updatePassword: builder.mutation({
+            query: (formData) => ({
+                url: `auth/update-password`,
+                method: 'PUT',
+                body: formData,
+            }),
+            invalidatesTags: ['practitioner-profile']
+        }),
     })
 
 })
@@ -83,11 +130,17 @@ export const {
     useRegisterUserMutation,
     useCreatePractitionerMutation,
     useCreateCustomerMutation,
+    useLogoutUserMutation,
     //GET
     useGetConfirmEmailQuery,
     useGetListOfPractitionerQuery,
     useGetPractitionerDetailsQuery,
+    useGetUserQuery,
+    useGetPractitionerQuery,
     //PUT
     useUpdateResetPasswordMutation,
+    useUpdateProfileMutation,
+    useUpdatePractitionerMutation,
+    useUpdatePasswordMutation
 
 } = AppApi
