@@ -17,7 +17,6 @@ const Practitioner = () => {
     page,
   });
 
-  console.log(data.practitionersSize, isLoading);
   const handleActiveRating = (value) => {
     setRating(value);
     refetch();

@@ -5,8 +5,8 @@ export const AppApi = createApi({
     reducerPath: 'appApi',
     baseQuery: fetchBaseQuery({
         // baseUrl: 'http://localhost:5000/api/v1',
-        baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
-        // baseUrl: 'https://dc68-39-50-165-45.ngrok-free.app/api/v1',
+        // baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
+        baseUrl: 'https://dc68-39-50-165-45.ngrok-free.app/api/v1',
         credentials: "include"
     }),
     endpoints: (builder) => ({
