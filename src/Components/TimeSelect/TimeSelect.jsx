@@ -7,11 +7,18 @@ const TimeSelect = ({
   value,
   days = false,
   handleInputChange = (id, e) => {},
+  handleSheduleChange = () => {},
+  index = "",
+  key = "",
 }) => {
   return (
     <div className="time-select">
       <select
-        onChange={(e) => handleInputChange(id, e.target.value)}
+        onChange={
+          isList
+            ? (e) => handleInputChange(id, e.target.value)
+            : (e) => handleSheduleChange(e.target.value, `${index}/${key}`)
+        }
         style={isList ? { paddingLeft: "15px", backgroundImage: "none" } : {}}
       >
         {isList ? (

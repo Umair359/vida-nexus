@@ -13,9 +13,6 @@
 
 .product-setting-btn {
   margin: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 60px;
 }
 .product-setting-btn > button {
@@ -25,17 +22,11 @@
   padding: 10px 20px;
   border-radius: 10px;
   color: white;
-}
-.product-setting-btn > button:first-child {
-  background-color: #083239;
-  position: relative;
-  bottom: 55px;
-  box-shadow: #083239b2 0px 8px 24px;
-}
-.product-setting-btn > button:nth-child(2) {
   background-color: #fa8708;
   box-shadow: #fa850867 0px 8px 24px;
+  float: right;
 }
+
 @media (max-width: 1600px) {
   .admin-product-card {
     margin: 20px 5px 0px 5px;

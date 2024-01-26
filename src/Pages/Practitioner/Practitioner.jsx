@@ -16,7 +16,8 @@ const Practitioner = () => {
     category,
     page,
   });
-  console.log(data, isLoading);
+
+  console.log(data.practitionersSize, isLoading);
   const handleActiveRating = (value) => {
     setRating(value);
     refetch();
@@ -90,17 +91,19 @@ const Practitioner = () => {
           {data?.data?.map((item) => {
             return (
               <PractionerCard
-                image={item.userId.userImages[0].filename}
-                name={item.userId.name}
-                description={item.description}
-                id={item._id}
+                image={item?.userId?.userImages[0]?.filename}
+                name={item?.userId?.name}
+                description={item?.description}
+                id={item?._id}
                 rating={Math.round(item.avgRating)}
               />
             );
           })}
         </div>
       )}
-      {!isLoading ? (
+      {!isLoading &&
+      data?.practitionersSize > 12 &&
+      (data.data.length >= 12 || data?.page !== 1) ? (
         <Pagination
           hangleActivePage={hangleActivePage}
           currentPage={data?.page}

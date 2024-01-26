@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AdminInput from "../AdminInput/AdminInput";
 import AdminInputDes from "../AdminInputDes/AdminInputDes";
 import AdminInputFile from "../AdminInputFile/AdminInputFile";
-import AdminTimeInput from "../AdminTimeInput/AdminTimeInput";
+import ServiceSchedule from "../ServiceSchedule/ServiceSchedule.jsx";
 import "./AddNewService.css";
 import { errorNotify, successNotify } from "../../Helper/Toast";
 import { useCreateServiceMutation } from "../../api/appApi";
@@ -14,9 +14,15 @@ const AddNewService = () => {
     serviceName: "",
     duration: "",
   });
+  const [scheduleData, setScheduleData] = useState([
+    {
+      startTime: "",
+      endTime: "",
+      day: "Monday",
+    },
+  ]);
   const [loading, setLoading] = useState(false);
   const [createService] = useCreateServiceMutation();
-  const [noOfDays, setNoOfDays] = useState(1);
   const [imagePreview, setImagePreview] = useState("");
   const [image, setImage] = useState();
 
@@ -72,6 +78,30 @@ const AddNewService = () => {
     }
     setLoading(false);
   };
+  const handleSheduleChange = (value, index, key) => {
+    console.log(value);
+    console.log(index);
+    console.log(key);
+  };
+  const handleDeleteSchedule = (index) => {
+    console.log(index);
+    setScheduleData((prev) => {
+      const newSchedule = [...prev.slice(0, index), ...prev.slice(index + 1)];
+      return newSchedule;
+    });
+  };
+
+  const handleAddSchedule = () => {
+    setScheduleData((prev) => {
+      const newSchedule = [...prev];
+      newSchedule.push({
+        startTime: "",
+        endTime: "",
+        day: "Monday",
+      });
+      return newSchedule;
+    });
+  };
 
   return (
     <div className="admin-profile">
@@ -112,15 +142,14 @@ const AddNewService = () => {
           type={"number"}
           display={userData.duration}
         />
-        <AdminTimeInput text="Schedule" noOfDays={noOfDays} />
+        <ServiceSchedule
+          schedule={scheduleData}
+          handleSheduleChange={handleSheduleChange}
+          handleAddSchedule={handleAddSchedule}
+          handleDeleteSchedule={handleDeleteSchedule}
+        />
       </div>
-
       <div className="product-setting-btn">
-        <button onClick={() => setNoOfDays((prev) => prev + 1)}>
-          <img src="/Images/AddIcon.png" alt="AddIcon.png" />
-          <p>Add Day</p>
-        </button>
-
         <button onClick={handleAddNewService}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
