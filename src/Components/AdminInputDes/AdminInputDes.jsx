@@ -5,10 +5,11 @@ const AdminInputDes = ({
   text,
   handleInputChange = "",
   value = "",
+  display = "",
 }) => {
   return (
     <div className="admin-input-des">
-      <label for="store-des">
+      <label for={id}>
         <h4>{text}</h4>
       </label>
       <textarea
@@ -17,6 +18,7 @@ const AdminInputDes = ({
         onChange={(e) => handleInputChange(id, e.target.value)}
         rows="4"
         cols="50"
+        value={display}
       ></textarea>
     </div>
   );

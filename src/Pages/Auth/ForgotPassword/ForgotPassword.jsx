@@ -60,6 +60,7 @@ const ForgotPassword = () => {
             type="text"
             id="email"
             text="Email"
+            display={userData.email}
           />
         </div>
         <button className="btn-primary">{loading ? <Loader /> : "Send"}</button>

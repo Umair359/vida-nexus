@@ -14,22 +14,13 @@ const AdminInput = ({
       <label htmlFor={id}>
         <h4>{text}</h4>
       </label>
-      {display === "" ? (
-        <input
-          placeholder={value}
-          type={type}
-          id={id}
-          onChange={(e) => handleInputChange(id, e.target.value)}
-        />
-      ) : (
-        <input
-          placeholder={value}
-          type={type}
-          id={id}
-          value={display}
-          onChange={(e) => handleInputChange(id, e.target.value)}
-        />
-      )}
+      <input
+        placeholder={value}
+        type={type}
+        id={id}
+        value={display}
+        onChange={(e) => handleInputChange(id, e.target.value)}
+      />
     </div>
   );
 };

@@ -3,13 +3,22 @@ import AdminInput from "../AdminInput/AdminInput";
 import AdminInputDes from "../AdminInputDes/AdminInputDes";
 import AdminInputFile from "../AdminInputFile/AdminInputFile";
 import AdminTimeInput from "../AdminTimeInput/AdminTimeInput";
-
+import "./AddNewService.css";
+import { errorNotify, successNotify } from "../../Helper/Toast";
+import { useCreateServiceMutation } from "../../api/appApi";
+import Loader from "../../Helper/Loader";
 const AddNewService = () => {
   const [userData, setUserData] = useState({
-    name: "",
-    contact: "",
+    description: "",
+    servicePrice: "",
+    serviceName: "",
+    duration: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [createService] = useCreateServiceMutation();
   const [noOfDays, setNoOfDays] = useState(1);
+  const [imagePreview, setImagePreview] = useState("");
+  const [image, setImage] = useState();
 
   const handleInputChange = (inputId, inputValue) => {
     setUserData((prevUserData) => ({
@@ -17,45 +26,102 @@ const AddNewService = () => {
       [inputId]: inputValue,
     }));
   };
+  const imageHandler = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImagePreview(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const handleAddNewService = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      if (userData.serviceName) {
+        formData.append("name", userData.serviceName);
+      }
+      if (userData.description) {
+        formData.append("description", userData.description);
+      }
+      if (userData.servicePrice) {
+        formData.append("price", userData.servicePrice);
+      }
+      if (image) {
+        formData.append("serviceImages", image);
+      }
+      console.log(formData);
+      const res = await createService(formData);
+      console.log(res);
+      if (res.error) {
+        errorNotify(res.error.data.error);
+      } else {
+        successNotify("Service Added");
+        setUserData({
+          name: "",
+          contact: "",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      errorNotify("Something went wrong");
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="admin-profile">
       <div>
         <h3>Add New Services</h3>
         <h3>-</h3>
       </div>
-      <AdminInput
-        handleInputChange={handleInputChange}
-        type={"text"}
-        id={"serviceName"}
-        text={"Service Name"}
-      />
-      <AdminInputDes
-        handleInputChange={handleInputChange}
-        text={"Service Description"}
-        id={"description"}
-      />
-      <AdminInputFile text={"Change Picture"} />
-      <AdminInput
-        handleInputChange={handleInputChange}
-        text={"Service Price"}
-        id={"servicePrice"}
-        type={"number"}
-      />
-      <AdminInput
-        handleInputChange={handleInputChange}
-        text={"Duration in Minutes"}
-        id={"duration"}
-        type={"number"}
-      />
-      <AdminTimeInput text="Schedule" noOfDays={noOfDays} />
+      <div className="add-service-settings">
+        <AdminInput
+          handleInputChange={handleInputChange}
+          type={"text"}
+          id={"serviceName"}
+          text={"Service Name"}
+          display={userData.serviceName}
+        />
+        <AdminInputDes
+          handleInputChange={handleInputChange}
+          text={"Service Description"}
+          id={"description"}
+          display={userData.description}
+        />
+        <AdminInputFile
+          handleInputChange={imageHandler}
+          text={"Change Picture"}
+          image={imagePreview}
+        />
+        <AdminInput
+          handleInputChange={handleInputChange}
+          text={"Service Price"}
+          id={"servicePrice"}
+          type={"number"}
+          display={userData.servicePrice}
+        />
+        <AdminInput
+          handleInputChange={handleInputChange}
+          text={"Duration in Minutes"}
+          id={"duration"}
+          type={"number"}
+          display={userData.duration}
+        />
+        <AdminTimeInput text="Schedule" noOfDays={noOfDays} />
+      </div>
 
       <div className="product-setting-btn">
-        <button>
+        <button onClick={() => setNoOfDays((prev) => prev + 1)}>
           <img src="/Images/AddIcon.png" alt="AddIcon.png" />
-          <p onClick={() => setNoOfDays((prev) => prev + 1)}>Add Day</p>
+          <p>Add Day</p>
         </button>
 
-        <button>
+        <button onClick={handleAddNewService}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -70,7 +136,7 @@ const AddNewService = () => {
               fill="#fff"
             />
           </svg>
-          <p>SAVE CHANGES</p>
+          <p>{loading ? <Loader /> : "SAVE CHANGES"}</p>
         </button>
       </div>
     </div>

@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isLoading, data, refetch } = useGetUserQuery();
+  const { isLoading, data } = useGetUserQuery();
   console.log(isLoading, data, "getProfile");
   const [logout] = useLogoutUserMutation();
   const handleLogout = async () => {
@@ -17,7 +17,7 @@ const Header = () => {
       const res = await logout();
       console.log(res);
       if (res?.data?.success) {
-        successNotify("Logged Out Successfully");
+        successNotify("Logging Out");
         Cookies.remove("token");
         setTimeout(() => {
           navigate("/");

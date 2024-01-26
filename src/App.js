@@ -36,8 +36,10 @@ import ServiceHistoryDetail from './Pages/ServiceHistoryDetail/ServiceHistoryDet
 import DocuSign from './Pages/DocuSign/DocuSign.jsx';
 import ScrollToTop from './Helper/ScrollToTop.jsx';
 
+// import NotFound from './Pages/NotFound/NotFound.jsx'
 
 import "./App.css"
+// import { useGetUserQuery } from "./api/appApi.js";
 
 const PageLayout = ({ children }) => (
   <>
@@ -49,7 +51,7 @@ const PageLayout = ({ children }) => (
 
 
 const App = () => {
-
+  // const { isLoading, data } = useGetUserQuery();
   return (
     <>
       <ToastContainer

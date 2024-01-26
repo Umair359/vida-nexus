@@ -1,0 +1,7 @@
+.add-service-settings {
+  margin-left: 30px;
+  width: 50%;
+}
+.add-service-settings input[type="number"] {
+  width: 30%;
+}

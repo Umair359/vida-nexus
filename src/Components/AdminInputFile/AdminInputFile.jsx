@@ -1,7 +1,7 @@
 import React from "react";
 import "./AdminInputFile.css";
 
-const AdminInputFile = ({ text, imageHandler, image }) => {
+const AdminInputFile = ({ text, handleInputChange, image }) => {
   return (
     <div className="admin-input-file">
       <label htmlFor="store-logo">
@@ -17,7 +17,7 @@ const AdminInputFile = ({ text, imageHandler, image }) => {
         ></div>
       </label>
       <input
-        onChange={imageHandler}
+        onChange={handleInputChange}
         type="file"
         id="store-logo"
         accept=".png, .jpg, .jpeg"

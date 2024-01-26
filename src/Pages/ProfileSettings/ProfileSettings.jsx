@@ -80,7 +80,7 @@ const ProfileSettings = () => {
       if (res.error) {
         errorNotify(res.error.data.error);
       } else {
-        successNotify("Profile Changes");
+        successNotify("Profile Updated");
         setUserData({
           name: "",
           contact: "",
@@ -141,6 +141,7 @@ const ProfileSettings = () => {
   };
   const handleChangePassword = async (e) => {
     e.preventDefault();
+    setPasswordLoading(true);
     console.log(passwordData);
     if (
       passwordData.confirmPassword === "" ||
@@ -173,6 +174,7 @@ const ProfileSettings = () => {
       } catch (error) {
         errorNotify("Something went wrong");
       }
+      setPasswordLoading(false);
     }
   };
 
@@ -256,6 +258,7 @@ const ProfileSettings = () => {
                 id={"name"}
                 text={"Name"}
                 value={data?.data?.userId?.name}
+                display={userData.name}
               />
               <AdminInput
                 handleInputChange={handleInputChange}
@@ -264,6 +267,7 @@ const ProfileSettings = () => {
                 id={"contact"}
                 text={"Contact"}
                 value={data?.data?.userId?.phone}
+                display={userData.contact}
               />
             </div>
             <button
@@ -298,6 +302,7 @@ const ProfileSettings = () => {
                 id={"description"}
                 text={"Description"}
                 value={data?.data?.description}
+                display={practitionerData.description}
               />
               <AdminInput
                 handleInputChange={handlePractitionerInputChange}
@@ -305,6 +310,7 @@ const ProfileSettings = () => {
                 id={"facebookUrl"}
                 text={"Facebook Url"}
                 value={data?.data?.facebookLink}
+                display={practitionerData.facebookUrl}
               />
               <AdminInput
                 handleInputChange={handlePractitionerInputChange}
@@ -312,6 +318,7 @@ const ProfileSettings = () => {
                 id={"instagramUrl"}
                 text={"Instagram Url"}
                 value={data?.data?.instagramLink}
+                display={practitionerData.instagramUrl}
               />
               <AdminInput
                 handleInputChange={handlePractitionerInputChange}
@@ -319,6 +326,7 @@ const ProfileSettings = () => {
                 id={"linkedInUrl"}
                 text={"Linked In Url"}
                 value={data?.data?.linkedinLink}
+                display={practitionerData.linkedInUrl}
               />
             </div>
             <button

@@ -58,19 +58,21 @@ const ResetPassword = () => {
   return (
     <div className="my-container">
       <form onSubmit={handleLogin} className="register-as-user">
-        <h1>Reset Password</h1>
+        <h1>Password</h1>
         <div>
           <AdminInput
             handleInputChange={handleInputChange}
             type="password"
             id="password"
             text="Password"
+            display={userData.password}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="password"
             id="confirmPassword"
             text="Confirm Password"
+            display={userData.confirmPassword}
           />
         </div>
         <button className="btn-primary">

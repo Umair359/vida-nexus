@@ -56,12 +56,14 @@ const Login = () => {
             type="text"
             id="email"
             text="Email"
+            display={userData.email}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="password"
             id="password"
             text="Password"
+            display={userData.password}
           />
           <Link to={"forgot-password"}>Forgotten Password?</Link>
         </div>

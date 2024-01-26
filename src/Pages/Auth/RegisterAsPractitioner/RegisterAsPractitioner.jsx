@@ -69,30 +69,35 @@ const RegisterAsPractitioner = () => {
             type="text"
             id="name"
             text="Name"
+            display={userData.name}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="text"
             id="contact"
             text="Contact No"
+            display={userData.contact}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="text"
             id="email"
             text="Email"
+            display={userData.email}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="password"
             id="password"
             text="Password"
+            display={userData.password}
           />
           <AdminInput
             handleInputChange={handleInputChange}
             type="password"
             id="confirmPassword"
             text="Confirm Password"
+            display={userData.confirmPassword}
           />
         </div>
         <button onClick={handleRegisterPractitioner} className="btn-primary">

@@ -5,8 +5,8 @@ export const AppApi = createApi({
     reducerPath: 'appApi',
     baseQuery: fetchBaseQuery({
         // baseUrl: 'http://localhost:5000/api/v1',
-        // baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
-        baseUrl: 'https://ffaf-39-50-165-45.ngrok-free.app/api/v1',
+        baseUrl: 'https://vida-nexus.azurewebsites.net/api/v1',
+        // baseUrl: 'https://dc68-39-50-165-45.ngrok-free.app/api/v1',
         credentials: "include"
     }),
     endpoints: (builder) => ({
@@ -58,6 +58,20 @@ export const AppApi = createApi({
                 method: "POST",
                 body: formData
             })
+        }),
+        createService: builder.mutation({
+            query: (formData) => {
+                return {
+                    url: `practitioners/add-schedule`,
+                    method: 'POST',
+                    body: formData,
+                };
+            },
+            options: {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            },
         }),
 
         //GET
@@ -131,6 +145,7 @@ export const {
     useCreatePractitionerMutation,
     useCreateCustomerMutation,
     useLogoutUserMutation,
+    useCreateServiceMutation,
     //GET
     useGetConfirmEmailQuery,
     useGetListOfPractitionerQuery,
