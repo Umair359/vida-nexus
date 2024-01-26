@@ -10,6 +10,9 @@
   padding: 0 40px 20px 20px;
   border-bottom: 1px solid gainsboro;
 }
+.admin-sidebar > img:hover {
+  cursor: pointer;
+}
 .admin-sidebar > div {
   padding: 30px 0;
   display: flex;

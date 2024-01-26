@@ -18,6 +18,9 @@
 .header-lg > img {
   width: 300px;
 }
+.header-lg > img:hover {
+  cursor: pointer;
+}
 .header-lg-links {
   display: flex;
   width: 30vw;

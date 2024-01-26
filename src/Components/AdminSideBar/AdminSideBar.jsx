@@ -9,7 +9,11 @@ const AdminSideBar = () => {
   };
   return (
     <div className="admin-sidebar">
-      <img src="/Images/Logo.png" alt="Logo.png" />
+      <img
+        onClick={() => navigate("/")}
+        src="/Images/Logo.png"
+        alt="Logo.png"
+      />
       <div>
         <button onClick={() => navigate("invoice")}>
           <svg

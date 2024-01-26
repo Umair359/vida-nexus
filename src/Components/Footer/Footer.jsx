@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Footer.css";
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="footer-container">
       <div className="footer">
         <div className="footer-section1">
-          <img src="/Images/Logo.png" alt="Logo.png" />
+          <img
+            onClick={() => navigate("/")}
+            src="/Images/Logo.png"
+            alt="Logo.png"
+          />
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
