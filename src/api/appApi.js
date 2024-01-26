@@ -12,7 +12,6 @@ export const AppApi = createApi({
     endpoints: (builder) => ({
 
         //POST
-
         loginUser: builder.mutation({
             query: (formData) => ({
                 url: "auth/login",
