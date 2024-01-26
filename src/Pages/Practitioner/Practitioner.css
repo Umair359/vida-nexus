@@ -104,11 +104,19 @@ input[type="checkbox"]:before {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  text-align: left;
 }
 .practionser-heading > div > h3 {
   font-size: 26px;
   letter-spacing: 1.6px;
+  margin-top: 5px;
 }
+.practionser-heading > div > h5 {
+  font-size: 16px;
+  text-align: left;
+  color: #083239;
+}
+
 .practionser-heading > div > div {
   display: flex;
   gap: 5px;

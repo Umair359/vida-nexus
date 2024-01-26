@@ -9,22 +9,29 @@ const TimeSelect = ({
   handleInputChange = (id, e) => {},
   handleSheduleChange = () => {},
   index = "",
-  key = "",
+  name = "",
+  item = "",
+  isProduct = false,
 }) => {
+  console.log(item);
   return (
     <div className="time-select">
       <select
         onChange={
-          isList
+          isList || isProduct
             ? (e) => handleInputChange(id, e.target.value)
-            : (e) => handleSheduleChange(e.target.value, `${index}/${key}`)
+            : (e) => handleSheduleChange(e.target.value, index, name)
         }
-        style={isList ? { paddingLeft: "15px", backgroundImage: "none" } : {}}
+        style={
+          isList || isProduct
+            ? { paddingLeft: "15px", backgroundImage: "none" }
+            : {}
+        }
       >
         {isList ? (
           <option value={value?._id}>{value?.name}</option>
         ) : (
-          <option value={""}>{text}</option>
+          <option value={""}>{item === "" ? text : item}</option>
         )}
 
         {isList ? (
@@ -35,12 +42,19 @@ const TimeSelect = ({
           </>
         ) : days ? (
           <>
+            <option value={"Monday"}>Monday</option>
             <option value={"Tuesday"}>Tuesday</option>
             <option value={"Wednesday"}>Wednesday</option>
             <option value={"Thursday"}>Thursday</option>
             <option value={"Friday"}>Friday</option>
             <option value={"Saturday"}>Saturday</option>
             <option value={"Sunday"}>Sunday</option>
+          </>
+        ) : isProduct ? (
+          <>
+            <option value={"65b3b97ffdb1bd74da33b337"}>healthcare</option>
+            <option value={"65b3b953fdb1bd74da33b332"}>therapy</option>
+            <option value={"65b3b927fdb1bd74da33b32d"}>sleep aids</option>
           </>
         ) : (
           <>

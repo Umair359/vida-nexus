@@ -16,6 +16,7 @@ const Practitioner = () => {
     category,
     page,
   });
+  console.log(data);
 
   const handleActiveRating = (value) => {
     setRating(value);
@@ -95,6 +96,7 @@ const Practitioner = () => {
                 description={item?.description}
                 id={item?._id}
                 rating={Math.round(item.avgRating)}
+                category={item?.category?.name}
               />
             );
           })}

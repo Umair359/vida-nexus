@@ -1,41 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MultipleInputFiles.css";
-const MultipleInputFiles = ({ id = "first", text }) => {
-  const [backgroundImages, setBackgroundImages] = useState([]);
-  const handleFileChange = (e) => {
-    const files = e.target.files;
 
-    if (files && files.length > 0) {
-      const imagesArray = [];
-
-      for (let i = 0; i < files.length; i++) {
-        const reader = new FileReader();
-
-        reader.onload = () => {
-          imagesArray.push(reader.result);
-
-          if (imagesArray.length === files.length) {
-            setBackgroundImages(imagesArray);
-          }
-        };
-
-        reader.readAsDataURL(files[i]);
-      }
-    }
-  };
-  console.log(backgroundImages);
+const MultipleInputFiles = ({
+  id = "first",
+  text,
+  handleInputChange,
+  image,
+}) => {
   return (
     <div className="admin-input-file-multiple">
       <label for={`multiple_image_${id}`}>
         <h4>{text}</h4>
-        {backgroundImages.length === 0 ? (
+        {image.length === 0 ? (
           <div>
             <div></div>
             <div></div>
           </div>
         ) : (
           <div>
-            {backgroundImages.map((item) => {
+            {image.map((item) => {
               return (
                 <div
                   style={{
@@ -48,7 +31,7 @@ const MultipleInputFiles = ({ id = "first", text }) => {
         )}
       </label>
       <input
-        onChange={handleFileChange}
+        onChange={handleInputChange}
         multiple
         type="file"
         id={`multiple_image_${id}`}

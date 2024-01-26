@@ -1,25 +1,27 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ImagebaseUrl } from "../../Helper/constant";
+import "./ProductCard.css";
 
-const ProductCard = ({ isDashboard = false }) => {
+const ProductCard = ({ isDashboard = false, item = null }) => {
   const navigate = useNavigate();
   return (
     <div className="product">
-      <img src="/Images/product1.png" alt="product1.png" />
+      <img
+        src={`${ImagebaseUrl}products/${item?.productImages[0]?.filename}`}
+        alt={item?.productImages[0]?.filename}
+      />
       <div>
         <p>
           Price:<span></span>
         </p>
         <div>
-          <p>$ 12.00</p>
-          <p>$ 13.00</p>
+          <p>{`$ ${item?.price}.00`}</p>
+          <p>{`$ ${item?.price + Math.floor(item?.price / 3)}.00`}</p>
         </div>
       </div>
-      <h3>Product name</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
-      </p>
+      <h3>{item?.name}</h3>
+      <p>{item?.description}</p>
       <div>
         <button onClick={() => navigate("edit")} className="btn-primary">
           {isDashboard ? "EDIT" : "ADD TO CART"}

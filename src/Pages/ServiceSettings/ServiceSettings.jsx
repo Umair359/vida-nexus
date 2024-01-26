@@ -3,7 +3,12 @@ import React from "react";
 import ServiceCard from "../../Components/ServiceCard/ServiceCard";
 import AddNewService from "../../Components/AddNewService/AddNewService.jsx";
 import "./ServiceSettings.css";
+import { useGetPractitionerServiceQuery } from "../../api/appApi.js";
+import Loader from "../../Helper/Loader.js";
 const ServiceSettings = () => {
+  const { isLoading, data } = useGetPractitionerServiceQuery();
+
+  console.log(data, "useGetPractitionerQuery");
   return (
     <div className="admin-container">
       <div className="admin-profile admin-product-setting">
@@ -11,12 +16,26 @@ const ServiceSettings = () => {
           <h3>Edit Current Services</h3>
           <h3>-</h3>
         </div>
-        <div className="admin-service-card">
-          <ServiceCard isDashboard={true} />
-          <ServiceCard isDashboard={true} />
-          <ServiceCard isDashboard={true} />
-          <ServiceCard isDashboard={true} />
-        </div>
+
+        {isLoading ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "20px",
+            }}
+          >
+            <Loader color="orange" size="60px" />
+          </div>
+        ) : (
+          <div className="admin-service-card">
+            {data?.data?.serviceSchedule?.map((item) => {
+              return <ServiceCard isDashboard={true} item={item} />;
+            })}
+          </div>
+        )}
+
         <div>
           <button className="admin-btn btn-primary">
             <svg
@@ -43,56 +62,3 @@ const ServiceSettings = () => {
 };
 
 export default ServiceSettings;
-/*
-
-<div className="card">
-        <img src="/Images/service1.png" alt="service1" />
-        <div className="card-text">
-          <h3>Service 01</h3>
-          <p>
-            Lorem Ipsum is simply text of the pricing and typesetting industry
-          </p>
-          <Link to="">Get Stated</Link>
-        </div>
-      </div>
-      <div className="card">
-        <img src="/Images/service1.png" alt="service1" />
-        <div className="card-text">
-          <h3>Service 01</h3>
-          <p>
-            Lorem Ipsum is simply text of the pricing and typesetting industry
-          </p>
-          <Link to="">Get Stated</Link>
-        </div>
-      </div>
-      <div className="card">
-        <img src="/Images/service2.png" alt="service2" />
-        <div className="card-text">
-          <h3>Service 02</h3>
-          <p>
-            Lorem Ipsum is simply text of the pricing and typesetting industry
-          </p>
-          <Link to="">Get Stated</Link>
-        </div>
-      </div>
-      <div className="card">
-        <img src="/Images/service3.png" alt="service3" />
-        <div className="card-text">
-          <h3>Service 03</h3>
-          <p>
-            Lorem Ipsum is simply text of the pricing and typesetting industry
-          </p>
-          <Link to="">Get Stated</Link>
-        </div>
-      </div>
-      <div className="card">
-        <img src="/Images/service4.png" alt="service4" />
-        <div className="card-text">
-          <h3>Service 04</h3>
-          <p>
-            Lorem Ipsum is simply text of the pricing and typesetting industry
-          </p>
-          <Link to="">Get Stated</Link>
-        </div>
-      </div>
- */

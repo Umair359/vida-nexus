@@ -25,7 +25,9 @@ const PractitionerDetail = () => {
             <h1>Practitioner Detail</h1>
             <button className="btn-primary">
               <img src="/Images/storeIcon.png" alt="storeIcon.png" />
-              <Link to={"/practitioner/123456789/store"}>VISIT STORE</Link>
+              <Link to={`/practitioner/${data?.data?.practitioner?._id}/store`}>
+                VISIT STORE
+              </Link>
             </button>
           </div>
           <div className="practitioner-detail-header">
@@ -37,6 +39,7 @@ const PractitionerDetail = () => {
             </div>
             <div>
               <h3>{data?.data?.practitioner?.userId?.name}</h3>
+              <h5>{data?.data?.practitioner?.category?.name}</h5>
               <p>{data?.data?.practitioner?.description}</p>
             </div>
           </div>

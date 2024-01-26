@@ -15,8 +15,7 @@ import TimeSelect from "../../Components/TimeSelect/TimeSelect.jsx";
 const ProfileSettings = () => {
   const { isLoading, data } = useGetPractitionerQuery();
 
-  console.log(data);
-
+  console.log(data, "useGetPractitionerQuery");
   const [updateProfile] = useUpdateProfileMutation();
   const [updatePractitioner] = useUpdatePractitionerMutation();
   const [updatePassword] = useUpdatePasswordMutation();

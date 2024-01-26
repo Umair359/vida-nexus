@@ -18,7 +18,7 @@ const AddNewService = () => {
     {
       startTime: "",
       endTime: "",
-      day: "Monday",
+      day: "",
     },
   ]);
   const [loading, setLoading] = useState(false);
@@ -60,9 +60,17 @@ const AddNewService = () => {
       if (image) {
         formData.append("serviceImages", image);
       }
-      console.log(formData);
+      if (checkEmptyShedule()) {
+        errorNotify("Schedule timings are not completed");
+        return;
+      }
+      const newSchedule = {
+        duration: userData.duration,
+        schedule: [...scheduleData],
+      };
+      formData.append("newSchedule", JSON.stringify(newSchedule));
+
       const res = await createService(formData);
-      console.log(res);
       if (res.error) {
         errorNotify(res.error.data.error);
       } else {
@@ -78,10 +86,25 @@ const AddNewService = () => {
     }
     setLoading(false);
   };
-  const handleSheduleChange = (value, index, key) => {
-    console.log(value);
-    console.log(index);
-    console.log(key);
+  const checkEmptyShedule = () => {
+    for (let i = 0; i < scheduleData.length; i++) {
+      const { startTime, endTime, day } = scheduleData[i];
+
+      if (!startTime || !endTime || !day) {
+        return true;
+      }
+    }
+  };
+  const handleSheduleChange = (value, index, name) => {
+    setScheduleData((prevScheduleData) => {
+      const updatedScheduleData = [...prevScheduleData];
+      updatedScheduleData[index] = {
+        ...updatedScheduleData[index],
+        [name]: value,
+      };
+      console.log(updatedScheduleData, "updatedScheduleData");
+      return updatedScheduleData;
+    });
   };
   const handleDeleteSchedule = (index) => {
     console.log(index);

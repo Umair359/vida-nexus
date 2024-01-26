@@ -8,7 +8,7 @@ const ServiceCard = ({ isDashboard = false, item = null }) => {
   return (
     <div className="card">
       <img
-        src={`${ImagebaseUrl}/services/${item?.service?.serviceImages[0].filename}`}
+        src={`${ImagebaseUrl}services/${item?.service?.serviceImages[0].filename}`}
         alt={item?.service?.serviceImages[0].filename}
       />
       <div className="card-text">

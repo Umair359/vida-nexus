@@ -13,26 +13,29 @@ const AdminTimeInput = ({
   return (
     <div className="admin-input-time">
       <h4>{text}</h4>
-      {schedule.map((_, index) => (
+      {schedule.map((item, index) => (
         <div>
           <TimeSelect
-            text={`${index}`}
+            text={`Select Day`}
             days={true}
             handleSheduleChange={handleSheduleChange}
             index={index}
-            key="day"
+            name="day"
+            item={item.day}
           />
           <TimeSelect
             text="Start Time"
             handleSheduleChange={handleSheduleChange}
             index={index}
-            key="startTime"
+            name="startTime"
+            item={item.startTime}
           />
           <TimeSelect
             text="Close Time"
             handleSheduleChange={handleSheduleChange}
             index={index}
-            key="endTime"
+            name="endTime"
+            item={item.startTime}
           />
           <button onClick={() => handleDeleteSchedule(index)}>
             <FaCircleMinus fill="white" />

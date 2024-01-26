@@ -73,6 +73,20 @@ export const AppApi = createApi({
                 },
             },
         }),
+        createProduct: builder.mutation({
+            query: (formData) => {
+                return {
+                    url: `products/create`,
+                    method: 'POST',
+                    body: formData,
+                };
+            },
+            options: {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            },
+        }),
 
         //GET
 
@@ -84,15 +98,22 @@ export const AppApi = createApi({
             providesTags: ['user']
         }),
         getPractitioner: builder.query({
-            query: () => `practitioners/get`,
+            query: () => `practitioners/get/`,
             providesTags: ['practitioner-profile']
         }),
+        getPractitionerService: builder.query({
+            query: () => `practitioners/get-services`,
+        }),
+
         getListOfPractitioner: builder.query({
             query: ({ category, rating, page }) => `front-end/practitioners-list?rating=${rating}&category=${category}&page=${page}`,
             invalidatesTags: "list-of-practitioner"
         }),
         getPractitionerDetails: builder.query({
             query: (id) => `front-end/practitioner-details/${id}`,
+        }),
+        getPractitionerProduct: builder.query({
+            query: (id) => `front-end/store-all-products/${id}`,
         }),
 
 
@@ -146,12 +167,15 @@ export const {
     useCreateCustomerMutation,
     useLogoutUserMutation,
     useCreateServiceMutation,
+    useCreateProductMutation,
     //GET
     useGetConfirmEmailQuery,
     useGetListOfPractitionerQuery,
     useGetPractitionerDetailsQuery,
     useGetUserQuery,
     useGetPractitionerQuery,
+    useGetPractitionerServiceQuery,
+    useGetPractitionerProductQuery,
     //PUT
     useUpdateResetPasswordMutation,
     useUpdateProfileMutation,

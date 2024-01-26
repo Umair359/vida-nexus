@@ -48,8 +48,8 @@ const Testimonial = ({ reviews }) => {
               </p>
               <div>
                 <img
-                  src={`${ImagebaseUrl}/users/${item?.customer?.userId?.userImages[0]?.filename}`}
-                  alt={`${ImagebaseUrl}/users/${item?.customer?.userId?.userImages[0]?.filename}`}
+                  src={`${ImagebaseUrl}users/${item?.customer?.userId?.userImages[0]?.filename}`}
+                  alt={`${ImagebaseUrl}users/${item?.customer?.userId?.userImages[0]?.filename}`}
                 />
 
                 <h4>

@@ -65,7 +65,7 @@ const Header = () => {
             <div className="btn-container">
               {!isLoading && data?.success ? (
                 <img
-                  src={`${ImagebaseUrl}/users/${data?.data?.userImages[0]?.filename}`}
+                  src={`${ImagebaseUrl}users/${data?.data?.userImages[0]?.filename}`}
                   alt={data?.data?.userImages[0]?.filename}
                 />
               ) : null}
